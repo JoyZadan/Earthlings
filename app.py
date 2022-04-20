@@ -33,7 +33,6 @@ def index():
     return render_template("index.html", index_page=True)
 
 
-
 @app.errorhandler(404)
 def page_not_found(*args, **kwargs):
     # note that we set the 404 status explicitly

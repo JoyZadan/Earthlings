@@ -1,17 +1,5 @@
 {% extends "base.html" %}
 
-
-
 {% block content %}
-
-
-<div class="div">
-        {% if session.user %}
-            <a href="{{ url_for("profile") }}" class="waves-effect waves-light btn-large">
-                <i class="fas fa-dumbbell"></i> PROFILE <i class="fas fa-dumbbell"></i></a>
-        {% else %}
-            <a href="{{ url_for("register") }}" class="waves-effect waves-light btn-large"><i
-                    class="fas fa-dumbbell"></i> REGISTER <i class="fas fa-dumbbell"></i></a>
-        {% endif %}
-</div>
+    <p>homepage</p>
 {% endblock %}
