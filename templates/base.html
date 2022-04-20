@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+    <!-- Metas -->
+    <meta name="description" content="An exercise tracking website"/>
+    <meta name="keywords" content="Fitness, workout, activity, tracking, dairy"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5.0, minimum-scale=0.999"/>
+    <link rel="canonical" href="https://github.com/alexandergrib/fitness_master/"/>
+    <meta name="robots" content="index, follow"/>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Facebook, LinkedIn, Google  -->
+    <meta property="og:type" content="article"/>
+    <meta property="og:title" content="Fitness Master"/>
+    <meta property="og:description" content="An exercise tracking website, track your activity smarter"/>
+    <meta name="image" property="og:image" content="./readme_screenshots/screen_shot.png"/>
+    <meta property="og:image:alt" content="An image of the final site on a range of screen sizes"/>
+    <meta property="og:url" content="https://fitness-master.herokuapp.com/"/>
+    <meta property="og:site_name" content="Fitness Master"/>
+    <meta name="author" content="Alexander G"/>
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="Fitness Master"/>
+    <meta name="twitter:description" content="An exercise tracking website, track your activity smarter"/>
+    <meta name="twitter:image" content="./readme_screenshots/screen_shot.png"/>
+    <meta name="twitter:image:alt" content="An image of the final site on a range of screen sizes"/>
+
+<!--    &lt;!&ndash; Materialize CDN &ndash;&gt;-->
+<!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"-->
+<!--          type="text/css">-->
+
+    <!-- Page specific css block -->
+
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css"
+          integrity="sha512-xA6Hp6oezhjd6LiLZynuukm80f8BoZ3OpcEYaqKoCV3HKQDrYjDE1Gu8ocxgxoXmwmSzM4iqPvCsOkQNiu41GA=="
+          crossorigin="anonymous" type="text/css">
+
+    <!-- Animate stylesheet -->
+<!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"-->
+<!--          type="text/css">-->
+
+    <!-- Local stylesheet -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180"
+          href="{{ url_for('static', filename='img/favicon/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32"
+          href="{{ url_for('static', filename='img/favicon/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16"
+          href="{{ url_for('static', filename='img/favicon/favicon-16x16.png') }}">
+    <link rel="manifest" href="{{ url_for('static', filename='img/favicon/site.webmanifest') }}">
+
+    {% block css %}
+    {% endblock %}
+
+    <title>
+
+    </title>
+
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-wrapper">
+                <a href="{{ url_for('index') }}" class="brand-logo">
+                    <img src="{{ url_for('static', filename='img/fitness_master_logo.svg') }}"
+                         alt="website Logo" width="65" height="65">
+                </a>
+                <a href="{{ url_for('index') }}" data-target="mobile" class="sidenav-trigger">
+                    <i class="fas fa-dumbbell"></i>
+                </a>
+                <ul class="right hide-on-med-and-down">
+                    {% if session.user %}
+                        <li><a href="{{ url_for('index') }}">Home</a></li>
+                        <li><a href="{{ url_for('get_workout') }}">Your workouts</a></li>
+                        <li><a href="{{ url_for('get_exercise_list') }}">Individual exercises</a></li>
+                        <li><a href="{{ url_for('profile') }}">Profile</a></li>
+                        <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+                    {% else %}
+                        <li><a href="{{ url_for('index') }}">Home</a></li>
+                        <li><a href="{{ url_for('login') }}">Log In</a></li>
+                        <li><a href="{{ url_for('register') }}">Register</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </nav>
+
+        <ul class="sidenav" id="mobile">
+            {% if session.user %}
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="{{ url_for('get_workout') }}">Your workouts</a></li>
+                <li><a href="{{ url_for('get_exercise_list') }}">Individual exercises</a></li>
+                <li><a href="{{ url_for('profile') }}">Profile</a></li>
+                <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+            {% else %}
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="{{ url_for('login') }}">Log In</a></li>
+                <li><a href="{{ url_for('register') }}">Register</a></li>
+            {% endif %}
+        </ul>
+
+    </header>
+    <div class="breadcrumbs">
+        <div class="row">
+            <div class="col s12">
+                <div class="breadcrumbs-wrapper">
+                    <ul>
+                        {% block breadcrumbs %}
+                        {% endblock %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- flash messages -->
+    <div>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="row flashes">
+                        <h4 class="light-blue lighten-4 center-align">{{ message }}</h4>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </div>
+
+
+
+
+
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
