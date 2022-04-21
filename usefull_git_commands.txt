@@ -1,5 +1,9 @@
 HEROKU
 
+
+heroku git:remote -a earthlings-hackathon
+
+
  git add .
  git commit -am "make it better"
  git push heroku main
