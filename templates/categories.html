@@ -2,4 +2,24 @@
 
 {% block content %}
     <h1>List Categories</h1>
+    {% if categories %}
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for category in categories %}
+        <tr>
+            <td>{{category.name}}</td>
+            <td>{{category.description}}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+        
+    </table>
+    {% endif %}
+
 {% endblock %}
