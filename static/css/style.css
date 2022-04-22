@@ -19,3 +19,31 @@ body {
 .error-message {
     color: red;
 }
+
+/*-----------------------header/navbar style */
+
+.header-style {
+    background-color: greenyellow;
+}
+
+.logo {
+    color: #000;
+    margin: auto;
+    font-size: 75%;
+    text-decoration: none;
+}
+
+.logo:hover {
+    color: #000;
+}
+
+.toggler-style {
+    color: #000;
+    z-index: 999;
+    width: auto;
+    margin: auto;
+}
+
+.nav-item {
+    margin: auto;
+}
