@@ -1,48 +1,65 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h3 class="center-align">Register</h3>
-
-    <div class="row">
-        <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('register') }}">
-            <div class="card-panel">
-
-                <!-- username -->
-                <div class="row">
-					<div class="input-field col s12">
-						<i class="fas fa-user-plus prefix light-blue-text text-darken-1"></i>
-						<input id="username" name="username" type="text" minlength="3"
-                            maxlength="15" pattern="^[a-zA-Z0-9]{3,15}$" class="validate" required>
-						<label for="username">Username</label>
-					</div>
+    <h2 class="center-align">Register</h2>
+    <div class="login-container">
+        <div class="row">
+            <form class="col s12 m6 offset-m3" method="POST" action="{{ url_for('register') }}">
+                <div class="mb-3 mt-3">
+                    <label for="username" class="form-label">Username:</label>
+                    <input class="form-control validate"
+                           id="username"
+                           name="username"
+                           type="text"
+                           minlength="3"
+                           maxlength="15"
+                           pattern="^[a-zA-Z0-9]{3,15}$"
+                           onchange="validateInput(this.id);"
+                           required>
+{#                          TODO: add JS validation when ivalid data entered#}
+                    <span class="error-message hide" id="username_error">Error message</span>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password:</label>
+                    <input type="password"
+                           class="form-control validate"
+                           id="password"
+                           placeholder="Enter password"
+                           name="password"
+                           minlength="5"
+                           maxlength="15"
+                           pattern="^[a-zA-Z0-9.]{5,15}$"
+{#                           onchange="validatePassword(this.id);"#}
+                           required>
+                    <span class="error-message hide" id="password_error">Error password message</span>
+                </div>
+                <div class="mb-3">
+                    <label for="password2" class="form-label">Repeat Password:</label>
+                    <input type="password"
+                           class="form-control validate"
+                           id="password2"
+                           placeholder="Repeat password"
+                           name="password2"
+                           minlength="5"
+                           maxlength="15"
+{#                           onchange="validatePassword(this.id);"#}
+                           pattern="^[a-zA-Z0-9.]{5,15}$"
+                           required>
+                    <span class="error-message hide" id="password2_error">Error password2 message</span>
                 </div>
 
-                <!-- password -->
-                <div class="row">
-                    <div class="input-field col s12">
-						<i class="fas fa-user-lock prefix light-blue-text text-darken-1"></i>
-                        <input id="password" name="password" type="password" minlength="5"
-                            maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required>
-                        <label for="password">Password</label>
-                    </div>
-                </div>
+                <button type="submit" class="btn btn-primary mt-3">Submit</button>
+            </form>
+        </div>
 
-                <!-- register -->
-                <div class="row">
-                    <button type="submit" class="col s12 btn-large light-blue darken-1 text-shadow">
-                        Register <i class="fas fa-sign-in-alt"></i>
-                    </button>
-                </div>
+
+        <div class="row mt-3">
+            <div class="col s12">
+                <p class="right-align">
+                    Already registered? Please Login
+                    <a href="{{ url_for('login') }}" class="light-blue-text text-darken-4">Login</a>
+                </p>
             </div>
-        </form>
-    </div>
-
-    <div class="row">
-        <div class="col s12">
-            <p class="center-align">
-                Already Registered?
-                <a href="{{ url_for('login') }}" class="light-blue-text text-darken-1">Log In</a>
-            </p>
         </div>
     </div>
 
