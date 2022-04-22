@@ -133,6 +133,11 @@ def page_not_found(*args, **kwargs):
     return render_template('404.html'), 404
 
 
+@app.route("/categories")
+def categories():
+    return render_template("categories.html")
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
