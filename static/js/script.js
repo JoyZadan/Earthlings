@@ -20,7 +20,6 @@ function validateInput(id) {
     if (id === 'username') {
         const username = element.value
         if (isUserNameValid(username)) {
-            console.log('username valid')
             document.getElementById(`${id}_error`).classList.add('hide')
             document.getElementById(`${id}_error`).innerHTML = '';
         } else {
@@ -38,24 +37,20 @@ function validateInput(id) {
          return "Password must not contain Whitespaces.";
      }
 
-
      const isContainsUppercase = /^(?=.*[A-Z])/;
      if (!isContainsUppercase.test(value)) {
          return "Password must have at least one Uppercase Character.";
      }
-
 
      const isContainsLowercase = /^(?=.*[a-z])/;
      if (!isContainsLowercase.test(value)) {
          return "Password must have at least one Lowercase Character.";
      }
 
-
      const isContainsNumber = /^(?=.*[0-9])/;
      if (!isContainsNumber.test(value)) {
          return "Password must contain at least one Digit.";
      }
-
 
      const isContainsSymbol =
          /^(?=.*[~`!@#$%^&*()--+={}\[\]|\\:;"'<>,.?/_₹])/;
@@ -83,7 +78,6 @@ $("#password").on('change keydown paste input', function(e){
 
 
 $("#password2").on('change keydown paste input', function(e){
-    console.log(e.target.value);
    let password1 = $('#password').val();
    if (password1 !== e.target.value){
         document.getElementById("password2_error").classList.remove('hide');

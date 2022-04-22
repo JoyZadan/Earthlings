@@ -33,6 +33,7 @@ def index():
     return render_template("index.html", index_page=True)
 
 
+
 # ==========handle login logout register======================================
 @app.route("/register", methods=["GET", "POST"])
 def register():
