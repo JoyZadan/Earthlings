@@ -1,7 +1,9 @@
 body {
     /*background-color: red;*/
 }
-
+.hide {
+    display: none;
+}
 .center-align {
     text-align: center;
 }
