@@ -14,7 +14,10 @@
                            minlength="3"
                            maxlength="15"
                            pattern="^[a-zA-Z0-9]{3,15}$"
+                           onchange="validateInput(this.id);"
                            required>
+{#                          TODO: add JS validation when ivalid data entered#}
+                    <span class="error-message" id="username_error">Error message</span>
                 </div>
                 <div class="mb-3">
                     <label for="password" class="form-label">Password:</label>
@@ -27,6 +30,7 @@
                            maxlength="15"
                            pattern="^[a-zA-Z0-9]{5,15}$"
                            required>
+                    <span class="error-message" id="password_error">Error password message</span>
                 </div>
                 <div class="mb-3">
                     <label for="password2" class="form-label">Repeat Password:</label>
