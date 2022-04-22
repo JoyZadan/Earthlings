@@ -90,24 +90,28 @@ def logout():
     return redirect(url_for("index"))
 
 
-# @app.route("/profile/", methods=["GET", "POST"])
-# def profile():
-#     """
-#     User profile check if user exists, if not redirects to home page
-#     """
-#     # grab the session user's username from db
-#     if request.method == "POST":
-#         pass
-#     try:
-#         mongo.db.users.find_one({
-#             "username": session["user"]
-#         })["username"]
-#     except Error:
-#         return redirect(url_for("login"))
-#     if "user" in session:
-#         user_history = list(mongo.db.user_profile.find({"username": {"$eq": session["user"]}}))
-#         return render_template("profile.html", user_history=user_history)
-#     return redirect(url_for("index"))
+class Error(Exception):  # Class from cloudinary used here temporary
+    pass
+
+
+@app.route("/profile/", methods=["GET", "POST"])
+def profile():
+    """
+    User profile check if user exists, if not redirects to home page
+    """
+    # grab the session user's username from db
+    if request.method == "POST":
+        pass
+    try:
+        mongo.db.users.find_one({
+            "username": session["user"]
+        })["username"]
+    except Error:
+        return redirect(url_for("login"))
+    if "user" in session:
+        user_history = list(mongo.db.user_profile.find({"username": {"$eq": session["user"]}}))
+        return render_template("profile.html", user_history=user_history)
+    return redirect(url_for("index"))
 
 
 @app.errorhandler(404)
