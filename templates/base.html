@@ -6,7 +6,7 @@
     <meta name="description" content="blah blabla blah"/>
     <meta name="keywords" content="blah, blabla, blah"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5.0, minimum-scale=1"/>
-    <link rel="canonical" href="<deployment-url>"/>
+    <link rel="canonical" href="https://earthlings-hackathon.herokuapp.com/"/>
     <meta name="robots" content="index, follow"/>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -17,7 +17,7 @@
     <meta property="og:description" content="blah blabla blah"/>
     <meta name="image" property="og:image" content="./readme_screenshots/screen_shot.png"/>
     <meta property="og:image:alt" content="blah blabla blah"/>
-    <meta property="og:url" content="<deployment-url>"/>
+    <meta property="og:url" content="https://earthlings-hackathon.herokuapp.com/"/>
     <meta property="og:site_name" content="blah blabla blah"/>
     <meta name="author" content="Earthlings Team"/>
 
@@ -46,13 +46,13 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
 
     <!-- Favicon -->
-    <link rel="apple-touch-icon" sizes="180x180"
-          href="{{ url_for('static', filename='img/favicon/apple-touch-icon.png') }}">
-    <link rel="icon" type="image/png" sizes="32x32"
-          href="{{ url_for('static', filename='img/favicon/favicon-32x32.png') }}">
-    <link rel="icon" type="image/png" sizes="16x16"
-          href="{{ url_for('static', filename='img/favicon/favicon-16x16.png') }}">
-    <link rel="manifest" href="{{ url_for('static', filename='img/favicon/site.webmanifest') }}">
+{#    <link rel="apple-touch-icon" sizes="180x180"#}
+{#          href="{{ url_for('static', filename='img/favicon/apple-touch-icon.png') }}">#}
+{#    <link rel="icon" type="image/png" sizes="32x32"#}
+{#          href="{{ url_for('static', filename='img/favicon/favicon-32x32.png') }}">#}
+{#    <link rel="icon" type="image/png" sizes="16x16"#}
+{#          href="{{ url_for('static', filename='img/favicon/favicon-16x16.png') }}">#}
+{#    <link rel="manifest" href="{{ url_for('static', filename='img/favicon/site.webmanifest') }}">#}
 
     {% block css %}
     {% endblock %}
@@ -67,11 +67,11 @@
 
     </header>
 
-
+<div class="container body-container">
     {% block content %}
 
     {% endblock %}
-
+</div>
 
 
 

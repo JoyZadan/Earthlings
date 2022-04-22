@@ -3,4 +3,8 @@
 {% block content %}
     <p>homepage</p>
     <p>testing heroku deployment</p>
+
+    {% if session.user %}
+        <h2>Hello {{ session.user }}</h2>
+    {% endif %}
 {% endblock %}
