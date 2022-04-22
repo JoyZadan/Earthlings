@@ -13,23 +13,6 @@ function isUserNameValid(username) {
     return !!res;
 }
 
-
-function isPasswordValid(password) {
-    /*
-      Usernames can only have:
-      - Lowercase Letters (a-z)
-      - Numbers (0-9)
-      - Underscores (_)
-    */
-
-    const mediumRegex =  new RegExp("/^(?=.*[~`!@#$%^&*()--+={}[]|\\:;\"'<>,.?/_₹])/");
-    // const mediumRegex = new RegExp("^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})");
-
-    const res = mediumRegex.exec(password);
-    return !!res;
-}
-
-
 //Password matching validation
 
 function validateInput(id) {
@@ -81,18 +64,31 @@ function validateInput(id) {
      }
 
 
-     const isValidLength = /^.{10,16}$/;
+     const isValidLength = /^.{5,16}$/;
      if (!isValidLength.test(value)) {
-         return "Password must be 10-16 Characters Long.";
+         return "Password must be 5-16 Characters Long.";
      }
      return null;
 }
 
 
-function validatePassword(id) {
-    let password = document.getElementById(id).value;
-    //TODO: check min length
+$("#password").on('change keydown paste input', function(e){
+    if (checkPasswordValidation( e.target.value) !== 'null'){
+        document.getElementById("password_error").classList.remove('hide');
+        document.getElementById("password_error").innerHTML = checkPasswordValidation( e.target.value);
+    } else {
+        document.getElementById("password_error").classList.add('hide');
+    }
+});
 
-    var pass = checkPasswordValidation(password.value)
-    document.getElementById(`${id}_error`).innerHTML = `${pass}`;
-}
+
+$("#password2").on('change keydown paste input', function(e){
+    console.log(e.target.value);
+   let password1 = $('#password').val();
+   if (password1 !== e.target.value){
+        document.getElementById("password2_error").classList.remove('hide');
+        document.getElementById("password2_error").innerHTML = "Passwords entered are not the same!";
+   }else {
+        document.getElementById("password2_error").classList.add('hide');
+   }
+});
