@@ -1,7 +1,9 @@
 body {
     /*background-color: red;*/
 }
-
+.hide {
+    display: none;
+}
 .center-align {
     text-align: center;
 }
@@ -12,4 +14,8 @@ body {
 .login-container {
     max-width: 400px;
     margin: 0 auto;
+}
+
+.error-message {
+    color: red;
 }

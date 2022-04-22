@@ -33,9 +33,12 @@ def index():
     return render_template("index.html", index_page=True)
 
 
+
 # ==========handle login logout register======================================
 @app.route("/register", methods=["GET", "POST"])
 def register():
+    if "user" in session:
+        return redirect(url_for('profile'))
     if request.method == "POST":
         # check if username already exists in db
         existing_user = mongo.db.users.find_one(
@@ -43,21 +46,27 @@ def register():
         if existing_user:
             flash("Username already exists")
             return redirect(url_for("register"))
-        register_user = {
-            "username": request.form.get("username").lower(),
-            "password": generate_password_hash(request.form.get("password"))
-        }
-        mongo.db.users.insert_one(register_user)
-        # put the new user into 'session' cookie
-        session["user"] = request.form.get("username").lower()
-        flash("Registration Successful!")
-        return redirect(url_for("index"))
+        validate_password = True if request.form.get("password") == request.form.get("password2") else flash("Passwords not matching")
+        if validate_password:
+            register_user = {
+                "username": request.form.get("username").lower(),
+                "password": generate_password_hash(request.form.get("password"))
+            }
+            mongo.db.users.insert_one(register_user)
+            # put the new user into 'session' cookie
+            session["user"] = request.form.get("username").lower()
+            flash("Registration Successful!")
+            return redirect(url_for("index"))
+        else:
+            return redirect((url_for('register')))
 
     return render_template("register.html")
 
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
+    if "user" in session:
+        return redirect(url_for('profile'))
     if request.method == "POST":
         # check if username exists in db
         existing_user = mongo.db.users.find_one(
@@ -84,10 +93,13 @@ def login():
 
 @app.route("/logout")
 def logout():
-    # remove user from session cookie
-    flash("You have been logged out")
-    session.pop("user")
-    return redirect(url_for("index"))
+    if "user" in session:
+        # remove user from session cookie
+        flash("You have been logged out")
+        session.pop("user")
+        return redirect(url_for("index"))
+
+    return redirect(url_for('index'))
 
 
 class Error(Exception):  # Class from cloudinary used here temporary
@@ -109,8 +121,9 @@ def profile():
     except Error:
         return redirect(url_for("login"))
     if "user" in session:
-        user_history = list(mongo.db.user_profile.find({"username": {"$eq": session["user"]}}))
-        return render_template("profile.html", user_history=user_history)
+        # user_history = list(mongo.db.user_profile.find({"username": {"$eq": session["user"]}}))
+        # return render_template("profile.html", user_history=user_history)
+        return render_template("profile.html")
     return redirect(url_for("index"))
 
 
