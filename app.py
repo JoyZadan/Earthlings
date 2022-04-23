@@ -175,6 +175,29 @@ def add_category():
         return render_template('404.html'), 404
 
 
+@app.route('/blog')
+def blog():
+
+    return render_template('blog.html')
+
+
+@app.route('/add_blog', methods=['GET', 'POST'])
+def add_blog():
+    blog_categories = mongo.db.categories.find()
+    if request.method == 'POST':
+        if "user" in session:
+            submit = {
+                'categories': request.form.getlist('categories_list'),
+                'title': request.form.get('title'),
+                'blog_text': request.form.get('blog_text'),
+                'created_by': session['user']
+            }
+            mongo.db.blog.insert_one(submit)
+            flash("Record {} created".format(submit['title']))
+            return render_template('blog.html')
+    return render_template('add_blog.html', categories=blog_categories)
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),

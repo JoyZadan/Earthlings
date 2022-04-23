@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <h1>People thoughts</h1>
+
+    <div class="blog-container">
+        <form method="post" action="{{ url_for('add_blog') }}">
+            <div class="mb-3">
+                <select class="form-select" multiple aria-label="select multiple categories" size="3" name="categories_list">
+                    <option selected disabled>Select categories</option>
+                    {% if categories %}
+                        {% for category in categories %}
+                        <option value="{{ category._id }}">{{ category.name }}</option>
+                        {% endfor %}
+                    {% else %}
+                        <option value="-1">No categories added</option>
+                    {% endif %}
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="title" class="form-label">Title</label>
+                <input type="text" class="form-control" id="title" aria-describedby="Blog title" name="title">
+            </div>
+            <div class="mb-3">
+                <label for="blog_text" class="form-label">Share your story</label>
+                <textarea class="form-control" id="blog_text" name="blog_text"> </textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+
+    <a href="{{ url_for('blog') }}" class="btn btn-secondary">Return to Blog</a>
+{% endblock %}
