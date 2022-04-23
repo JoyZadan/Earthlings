@@ -177,10 +177,22 @@ def add_category():
 
 @app.route('/blog')
 def blog():
-    blog_list = mongo.db.blog.find()
-    category_list = mongo.db.categories.find()
+    print(request.args.get('filter'))
+    query_filter = None
+    if request.args.get("filter"):
+        query = request.args.get("filter")
+        query_filter = mongo.db.categories.find_one(
+            {"_id": ObjectId(query)})
 
-    return render_template('blog.html', blog_list=blog_list, category_list=category_list)
+        blog_list = list(mongo.db.blog.find(
+            {"categories": {"$all": [query, ]}}
+        ))
+    else:
+        blog_list = list(mongo.db.blog.find())
+    category_list = list(mongo.db.categories.find())
+
+    return render_template('blog.html', blog_list=blog_list,
+                           category_list=category_list, filter=query_filter)
 
 
 @app.route('/add_blog', methods=['GET', 'POST'])
