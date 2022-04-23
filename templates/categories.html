@@ -3,26 +3,27 @@
 {% block content %}
     <h1>List Categories</h1>
     {% if categories %}
-    <table class="table table-hover table-responsive">
-        <thead>
+        <table class="table table-hover table-responsive">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for category in categories %}
             <tr>
-                <th>Name</th>
-                <th>Description</th>
+                <td>{{category.name}}</td>
+                <td>{{category.description}}</td>
             </tr>
-        </thead>
-        <tbody>
-        {% for category in categories %}
-        <tr>
-            <td>{{category.name}}</td>
-            <td>{{category.description}}</td>
-        </tr>
-        
-        {% endfor %}
-        </tbody>
-        
-    </table>
+            
+            {% endfor %}
+            </tbody>
+            
+        </table>
     {% else %}
-    <p>No categories found.</p>
+        <p>No categories found.</p>
     {% endif %}
+    <a href="{{ url_for('add_category') }}" class="btn btn-secondary">Add category</a>
 
 {% endblock %}
