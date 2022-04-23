@@ -34,6 +34,12 @@ The home page features an animation of moving buttons revolving around a central
 
 ## Wireframes
 
+| Desktop | Mobile |
+| --- | --- |
+| [Home page signed in](docs/wireframes/homedesktopsignedin.png), [Home page not signed in](docs/wireframes/homedesktopnotsignedin.png), [Home page as admin](docs/wireframes/homedesktopsignedinadmin.png) | [Home page](docs/wireframes/homemobile.png) |
+| [Add suggestion](docs/wireframes/addsuggestion.png) | [Add suggestion](docs/wireframes/addsuggestion.png) |
+| [Categories](docs/wireframes/categoriesdesktop.png) | [Categories](docs/wireframes/categoriesdesktop.png) |
+| [Suggestions signed in](docs/wireframes/suggestionsdesktopsignedin.png), [Suggestions not signed in](docs/wireframes/suggestionsdesktopnotsignedin.png) | [Suggestions signed in](docs/wireframes/suggestionsdesktopsignedin.png), [Suggestions not signed in](docs/wireframes/suggestionsdesktopnotsignedin.png) |
 
 
 ---
