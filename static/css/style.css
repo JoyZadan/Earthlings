@@ -1,6 +1,9 @@
 body {
-    /*background-color: red;*/
+    background: rgb(177,225,145);
+    background: radial-gradient(circle, rgba(177,225,145,1) 0%, rgba(64,124,55,1) 100%);
 }
+
+
 .hide {
     display: none;
 }
@@ -30,7 +33,7 @@ body {
 /*-----------------------header/navbar style */
 
 .header-style {
-    background-color: greenyellow;
+    background-color: #C0CF50;
 }
 
 .logo {
