@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row d-flex align-items-center flex-column">
+    <h3 class="text-center">Edit Category</h3>
+    <form class="w-75" method="POST" action="{{ url_for('edit_category', category_id=category._id) }}">
+        <div class="mb-3">
+            <label for="category_name" class="form-label">Category Name</label>
+            <input type="text" class="form-control" id="category_name" name="category_name" value="{{ category.name }}" required>
+        </div>
+        <div class="mb-3">
+            <label for="category_description" class="form-label">Description</label>
+            <input type="text" class="form-control" id="category_description" name="category_description" value="{{ category.description }}" required>
+        </div>
+        <button type="submit" class="btn btn-secondary">Save</button>
+        <a href="{{ url_for('categories') }}" class="btn btn-outline-secondary">Cancel</a>
+    </form>
+</div>
+{% endblock %}
