@@ -27,59 +27,18 @@ app.jinja_env.add_extension('jinja2.ext.loopcontrols')
 
 mongo = PyMongo(app)
 
-animation_info = [
-    {
-        'title': 'water',
-        'image': "static/assets/water.svg",
-        'content': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In enim velit, imperdiet et sapien ultricies, cursus interdum justo. Vivamus consequat, ligula quis faucibus ultricies, sapien sem aliquet dolor, sed blandit nunc turpis nec nisl. Sed consectetur malesuada sem, sed eleifend nulla mattis quis. Ut sollicitudin auctor dolor eget egestas. Sed in dolor eget massa volutpat cursus sed eget est. Maecenas euismod, purus ac efficitur euismod, ipsum quam vehicula metus, sit amet ullamcorper orci orci in leo. Maecenas porttitor fringilla mi, vitae laoreet purus. Suspendisse ultrices eros pharetra, lacinia erat sit amet, sollicitudin augue. Cras iaculis aliquet massa, at cursus nisl elementum eu. In sed metus pharetra justo dictum elementum. Etiam pulvinar augue in mauris pellentesque bibendum. Maecenas non venenatis felis, non malesuada urna.'
-
-    },
-    {
-        'title': 'plants',
-        'image': 'static/assets/leaf.svg',
-        'content': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In enim velit, imperdiet et sapien ultricies, cursus interdum justo. Vivamus consequat, ligula quis faucibus ultricies, sapien sem aliquet dolor, sed blandit nunc turpis nec nisl. Sed consectetur malesuada sem, sed eleifend nulla mattis quis. Ut sollicitudin auctor dolor eget egestas. Sed in dolor eget massa volutpat cursus sed eget est. Maecenas euismod, purus ac efficitur euismod, ipsum quam vehicula metus, sit amet ullamcorper orci orci in leo. Maecenas porttitor fringilla mi, vitae laoreet purus. Suspendisse ultrices eros pharetra, lacinia erat sit amet, sollicitudin augue. Cras iaculis aliquet massa, at cursus nisl elementum eu. In sed metus pharetra justo dictum elementum. Etiam pulvinar augue in mauris pellentesque bibendum. Maecenas non venenatis felis, non malesuada urna.'
-
-    },
-    {
-        'title': 'transport',
-        'image': 'static/assets/bus.svg',
-        'content': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In enim velit, imperdiet et sapien ultricies, cursus interdum justo. Vivamus consequat, ligula quis faucibus ultricies, sapien sem aliquet dolor, sed blandit nunc turpis nec nisl. Sed consectetur malesuada sem, sed eleifend nulla mattis quis. Ut sollicitudin auctor dolor eget egestas. Sed in dolor eget massa volutpat cursus sed eget est. Maecenas euismod, purus ac efficitur euismod, ipsum quam vehicula metus, sit amet ullamcorper orci orci in leo. Maecenas porttitor fringilla mi, vitae laoreet purus. Suspendisse ultrices eros pharetra, lacinia erat sit amet, sollicitudin augue. Cras iaculis aliquet massa, at cursus nisl elementum eu. In sed metus pharetra justo dictum elementum. Etiam pulvinar augue in mauris pellentesque bibendum. Maecenas non venenatis felis, non malesuada urna.'
-    },
-    {
-        'title': 'bag',
-        'image': 'static/assets/bag.svg',
-        'content': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In enim velit, imperdiet et sapien ultricies, cursus interdum justo. Vivamus consequat, ligula quis faucibus ultricies, sapien sem aliquet dolor, sed blandit nunc turpis nec nisl. Sed consectetur malesuada sem, sed eleifend nulla mattis quis. Ut sollicitudin auctor dolor eget egestas. Sed in dolor eget massa volutpat cursus sed eget est. Maecenas euismod, purus ac efficitur euismod, ipsum quam vehicula metus, sit amet ullamcorper orci orci in leo. Maecenas porttitor fringilla mi, vitae laoreet purus. Suspendisse ultrices eros pharetra, lacinia erat sit amet, sollicitudin augue. Cras iaculis aliquet massa, at cursus nisl elementum eu. In sed metus pharetra justo dictum elementum. Etiam pulvinar augue in mauris pellentesque bibendum. Maecenas non venenatis felis, non malesuada urna.'
-
-    },
-    {
-        'title': 'cycle',
-        'image': 'static/assets/bicycle.svg',
-        'content': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In enim velit, imperdiet et sapien ultricies, cursus interdum justo. Vivamus consequat, ligula quis faucibus ultricies, sapien sem aliquet dolor, sed blandit nunc turpis nec nisl. Sed consectetur malesuada sem, sed eleifend nulla mattis quis. Ut sollicitudin auctor dolor eget egestas. Sed in dolor eget massa volutpat cursus sed eget est. Maecenas euismod, purus ac efficitur euismod, ipsum quam vehicula metus, sit amet ullamcorper orci orci in leo. Maecenas porttitor fringilla mi, vitae laoreet purus. Suspendisse ultrices eros pharetra, lacinia erat sit amet, sollicitudin augue. Cras iaculis aliquet massa, at cursus nisl elementum eu. In sed metus pharetra justo dictum elementum. Etiam pulvinar augue in mauris pellentesque bibendum. Maecenas non venenatis felis, non malesuada urna.'
-
-    },
-    {
-        'title': 'solar',
-        'image': 'static/assets/sun.svg',
-        'content': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In enim velit, imperdiet et sapien ultricies, cursus interdum justo. Vivamus consequat, ligula quis faucibus ultricies, sapien sem aliquet dolor, sed blandit nunc turpis nec nisl. Sed consectetur malesuada sem, sed eleifend nulla mattis quis. Ut sollicitudin auctor dolor eget egestas. Sed in dolor eget massa volutpat cursus sed eget est. Maecenas euismod, purus ac efficitur euismod, ipsum quam vehicula metus, sit amet ullamcorper orci orci in leo. Maecenas porttitor fringilla mi, vitae laoreet purus. Suspendisse ultrices eros pharetra, lacinia erat sit amet, sollicitudin augue. Cras iaculis aliquet massa, at cursus nisl elementum eu. In sed metus pharetra justo dictum elementum. Etiam pulvinar augue in mauris pellentesque bibendum. Maecenas non venenatis felis, non malesuada urna.'
-
-    },
-    {
-        'title': 'heat',
-        'image': 'static/assets/thermometer.svg',
-        'content': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In enim velit, imperdiet et sapien ultricies, cursus interdum justo. Vivamus consequat, ligula quis faucibus ultricies, sapien sem aliquet dolor, sed blandit nunc turpis nec nisl. Sed consectetur malesuada sem, sed eleifend nulla mattis quis. Ut sollicitudin auctor dolor eget egestas. Sed in dolor eget massa volutpat cursus sed eget est. Maecenas euismod, purus ac efficitur euismod, ipsum quam vehicula metus, sit amet ullamcorper orci orci in leo. Maecenas porttitor fringilla mi, vitae laoreet purus. Suspendisse ultrices eros pharetra, lacinia erat sit amet, sollicitudin augue. Cras iaculis aliquet massa, at cursus nisl elementum eu. In sed metus pharetra justo dictum elementum. Etiam pulvinar augue in mauris pellentesque bibendum. Maecenas non venenatis felis, non malesuada urna.'
-
-    },
-    {
-        'title': 'energy',
-        'image': 'static/assets/electricity.svg',
-        'content': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In enim velit, imperdiet et sapien ultricies, cursus interdum justo. Vivamus consequat, ligula quis faucibus ultricies, sapien sem aliquet dolor, sed blandit nunc turpis nec nisl. Sed consectetur malesuada sem, sed eleifend nulla mattis quis. Ut sollicitudin auctor dolor eget egestas. Sed in dolor eget massa volutpat cursus sed eget est. Maecenas euismod, purus ac efficitur euismod, ipsum quam vehicula metus, sit amet ullamcorper orci orci in leo. Maecenas porttitor fringilla mi, vitae laoreet purus. Suspendisse ultrices eros pharetra, lacinia erat sit amet, sollicitudin augue. Cras iaculis aliquet massa, at cursus nisl elementum eu. In sed metus pharetra justo dictum elementum. Etiam pulvinar augue in mauris pellentesque bibendum. Maecenas non venenatis felis, non malesuada urna.'
-    }
-]
 
 @app.route("/")
 def index():
-    return render_template("index.html", index_page=True, animation_info=animation_info)
+    animation_info = list(mongo.db.animation.find())
+    # mongo.db.animation.
+    return render_template("index.html", index_page=True,
+                           animation_info=animation_info)
 
+
+@app.route('/calendar')
+def calendar():
+    return render_template("calendar.html")
 
 
 # ==========handle login logout register======================================
@@ -94,11 +53,16 @@ def register():
         if existing_user:
             flash("Username already exists")
             return redirect(url_for("register"))
-        validate_password = True if request.form.get("password") == request.form.get("password2") else flash("Passwords not matching")
-        if validate_password:
+        validate_password = True if request.form.get(
+            "password") == request.form.get("password2") else flash(
+            "Passwords not matching")
+        validate_password2 = True if request.form.get(
+            'password_is_valid') == 'yes' else flash("Passwords not valid")
+        if validate_password and validate_password2:
             register_user = {
                 "username": request.form.get("username").lower(),
-                "password": generate_password_hash(request.form.get("password"))
+                "password": generate_password_hash(
+                    request.form.get("password"))
             }
             mongo.db.users.insert_one(register_user)
             # put the new user into 'session' cookie
@@ -186,7 +150,7 @@ def categories():
     if "user" in session:
         categories = list(mongo.db.categories.find())
         return render_template("categories.html",
-                            categories=categories)
+                               categories=categories)
     else:
         return render_template('404.html'), 404
 
@@ -197,18 +161,43 @@ def add_category():
     Add a category
     '''
     if "user" in session:
-        if request.method =="POST":
+        if request.method == "POST":
             category_name = request.form.get("category_name")
             category_description = request.form.get("category_description")
             category = {
-                "name" : category_name,
-                "description" : category_description
+                "name": category_name,
+                "description": category_description
             }
             mongo.db.categories.insert_one(category)
             return redirect(url_for("categories"))
         return render_template("add_category.html")
     else:
         return render_template('404.html'), 404
+
+
+@app.route('/blog')
+def blog():
+    blog_list = mongo.db.blog.find()
+    category_list = mongo.db.categories.find()
+
+    return render_template('blog.html', blog_list=blog_list, category_list=category_list)
+
+
+@app.route('/add_blog', methods=['GET', 'POST'])
+def add_blog():
+    blog_categories = mongo.db.categories.find()
+    if request.method == 'POST':
+        if "user" in session:
+            submit = {
+                'categories': request.form.getlist('categories_list'),
+                'title': request.form.get('title'),
+                'blog_text': request.form.get('blog_text'),
+                'created_by': session['user']
+            }
+            mongo.db.blog.insert_one(submit)
+            flash("Record {} created".format(submit['title']))
+            return render_template('blog.html')
+    return render_template('add_blog.html', categories=blog_categories)
 
 
 if __name__ == "__main__":

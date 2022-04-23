@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <h1>People thoughts</h1>
+    {#    {% if blogs %}#}
+    <ul>
+        {% for blog in blog_list %}
+            <li>
+                <div class="blog-container-item">
+                    <div class="row">
+                        <div class="col">
+                            <span>{{ blog.title }}</span>
+                            <div class="category-container mt-3">
+                                <ol class="breadcrumb" style="--bs-breadcrumb-divider: '';">
+                                    {% for category in category_list %}
+                                        {% for item in blog.categories %}
+                                            {% for cat in category_list %}
+                                                {% if item == cat._id %}
+                                                    <li class="breadcrumb-item">
+                                                        <a href="#" class="btn btn-sm btn-outline-secondary">
+                                                            {{ cat.name }}
+                                                        </a>
+                                                    </li>
+                                                {% endif %}
+                                            {% endfor %}
+                                        {% endfor %}
+                                    {% endfor %}
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <p></p>
+                            <span>By: somename</span>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+    {#    {% else %}#}
+    {#        <p>No records found.</p>#}
+    {#    {% endif %}#}
+    <a href="{{ url_for('add_blog') }}" class="btn btn-secondary">Share your ideas</a>
+{% endblock %}
