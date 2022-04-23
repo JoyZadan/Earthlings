@@ -6,44 +6,41 @@
     {#    {% if blogs %}#}
     <ul>
         {% for blog in blog_list %}
-        <li>
-            <div class="blog-container">
-
-
-                        <div class="row">
-                            <div class="col">
-                                <span>{{ blog.title }}</span>
-                                <div class="category-container mt-3">
-                                    {% for category in category_list %}
-                                        <ol class="breadcrumb" style="--bs-breadcrumb-divider: '';">
-                                            <li class="breadcrumb-item">
-                                                <a href="#" class="btn btn-sm btn-outline-secondary">
-                                                    {% for item in blog.categories %}
-{#                                                        {% if item == category._id %}#}
-                                                            {{ item }}
-{#                                                        {% endif %}#}
+            <li>
+                <div class="blog-container-item">
+                    <div class="row">
+                        <div class="col">
+                            <span>{{ blog.title }}</span>
+                            <div class="category-container mt-3">
+                                {% for category in category_list %}
+                                    <ol class="breadcrumb" style="--bs-breadcrumb-divider: '';">
+                                        <li class="breadcrumb-item">
+                                            <a href="#" class="btn btn-sm btn-outline-secondary">
+                                                {% for item in blog.categories %}
+                                                    {% for cat in category_list %}
+                                                        {% if item == cat._id %}
+                                                            {{ cat.name }}
+                                                        {% endif %}
 
                                                     {% endfor %}
-                                                </a>
-                                            </li>
-                                        </ol>
+                                                {% endfor %}
+                                            </a>
+                                        </li>
+                                    </ol>
+                                    </div>
+                                    </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <p></p>
+                                            <span>By: somename</span>
+                                        </div>
+                                    </div>
+                                {% endfor %}
 
+                </div>
 
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col">
-                                <p></p>
-                                <span>By: somename</span>
-                            </div>
-                        </div>
-                    {% endfor %}
-
-            </div>
-
-        </li>
+            </li>
         {% endfor %}
     </ul>
     {#    {% else %}#}
