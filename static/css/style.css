@@ -66,5 +66,9 @@ nav {
 
 /*-----------------------calendar style */
 .calendar-header {
-    margin: 0.5rem auto;
+    margin: 0.75rem auto;
+}
+
+.card-header {
+    color: #198754;
 }
