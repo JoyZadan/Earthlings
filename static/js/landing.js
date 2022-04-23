@@ -27,7 +27,7 @@ span.forEach(btn => {
 const body = document.querySelector('body')
 const nav = document.querySelector('nav')
 const orbit = document.querySelector('.orbit-wrapper');
-nav.classList.add('hidden')
+
 
 
 // body.style.backgroundImage = 'linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(68,214,44,1) 50%)'
@@ -44,15 +44,16 @@ const heroObserver = new IntersectionObserver((entries, heroObserver) => {
             if(window.innerWidth < 1200){
                 console.log('hello')
             }else{
-                nav.classList.remove('hidden')
+                nav.style.opacity = '1'
                 nav.classList.add('fixed-top')
 
             }
             
             
         } else {
-            nav.classList.remove('fixed-top')
-                nav.classList.add('hidden')
+            // nav.classList.remove('fixed-top')
+            nav.style.opacity = '0'
+            
 
         }
     })

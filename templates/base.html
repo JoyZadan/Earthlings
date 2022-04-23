@@ -70,69 +70,30 @@
 <body>
 
     <header class="header-style">
-        <nav class="col-12 navbar navbar-expand-lg navbar-light">
-            <div class="row flex-wrap container-fluid">
-                <div class="logo-container col-12 text-center mx-auto">
-                    <h1>
-                        <a href="{{ url_for('index') }}" class="logo">
-                            Earthlings - Save Earth
-                        </a>
-                    </h1>
-                </div>
-                <button class="navbar-toggler toggler-style" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="col-8 collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav w-auto mx-auto">
-                        <li class="nav-item">
-                            <a href="{{ url_for('index') }}" class="btn btn-lg">
-                                <p>Home</p>
-                            </a> 
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ url_for('calendar')}}" class="btn btn-lg">
-                                <p>Calendar</p>
-                            </a> 
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ url_for('blog')}}" class="btn btn-lg">
-                                <p>Blogs</p>
-                            </a> 
-                        </li>
-                        {% if session.user %}
-                            <li class="nav-item">
-                                <a href="{{ url_for('categories') }}" class="btn btn-lg">
-                                    <p>Categories</p>
-                                </a> 
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{ url_for('profile') }}" class="btn btn-lg">
-                                    <p>My account</p>
-                                </a> 
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{ url_for('logout') }}" class="btn btn-lg">
-                                    <p>Log out</p>
-                                </a> 
-                            </li>
-                        {% else %}
-                            <li class="nav-item">
-                                <a href="{{ url_for('register') }}" class="btn btn-lg">
-                                    <p>Register</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{ url_for('login') }}" class="btn btn-lg">
-                                    <p>Log in</p>
-                                </a> 
-                            </li>
-                        {% endif %}
-                    </ul>
-                </div>
-            </div>
-        </nav>
+        <nav class="navbar navbar-expand-lg navbar-light ">
+  <div class="container-fluid">
+        <a class="navbar-brand" href="{{ url_for('index')}}">Earthlings</a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse"  id="navbarNav">
+      <ul class="navbar-nav ">
+       <li><a class="dropdown-item" href="{{ url_for('calendar')}}">Calendar</a></li>
+            <li><a class="dropdown-item" href="{{ url_for('blog')}}">Feed</a></li>
+            {% if session.user %}
+            <li><a class="dropdown-item" href="{{ url_for('categories') }}">Categories</a></li>
+            <li><a class="dropdown-item" href="{{ url_for('profile') }}">Profile</a></li>
+            <li><a class="dropdown-item" href="{{ url_for('logout') }}">Logout</a></li>
+            {% else %}
+            <li><a class="dropdown-item" href="{{ url_for('login') }}">Login</a></li>
+            <li><a class="dropdown-item" href="{{ url_for('register') }}">Register</a></li>
+            {% endif %}
+      </ul>
+    </div>
+  </div>
+</nav>
+        
     </header>
 
 <!-- flash messages -->

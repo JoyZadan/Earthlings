@@ -3,7 +3,9 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/landing.css') }}" type="text/css">
 {% endblock %}
 {% block js %}
-
+<script>
+    document.querySelector('nav').classList.add('hidden')
+</script>
 
 {% endblock %}
 {% block content %}

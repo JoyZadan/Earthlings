@@ -228,7 +228,11 @@ picture {
 }
 
 .hidden {
-  display: none !important;
+  opacity: 0;
+}
+
+nav {
+  transition:  250ms ease-in-out;
 }
 
 
