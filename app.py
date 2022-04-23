@@ -1,9 +1,5 @@
 import os
-# import re
-# from datetime import datetime
 
-# from bson.errors import InvalidId
-# from cloudinary.exceptions import Error
 from flask import (
     Flask, flash, render_template,
     redirect, request, session, url_for)
@@ -12,7 +8,6 @@ from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
 
-# from helpers import upload_image
 
 if os.path.exists("env.py"):
     import env
@@ -31,7 +26,6 @@ mongo = PyMongo(app)
 @app.route("/")
 def index():
     animation_info = list(mongo.db.animation.find())
-    # mongo.db.animation.
     return render_template("index.html", index_page=True,
                            animation_info=animation_info)
 
@@ -133,9 +127,10 @@ def profile():
     except Error:
         return redirect(url_for("login"))
     if "user" in session:
-        # user_history = list(mongo.db.user_profile.find({"username": {"$eq": session["user"]}}))
-        # return render_template("profile.html", user_history=user_history)
-        return render_template("profile.html")
+        blog_list = mongo.db.blog.find(
+            {"created_by": {'$eq': session['user']}})
+        category_list = list(mongo.db.categories.find())
+        return render_template("profile.html", blog_list=blog_list, category_list=category_list)
     return redirect(url_for("index"))
 
 
