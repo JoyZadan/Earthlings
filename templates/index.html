@@ -31,12 +31,12 @@
             </div>
             <ul id="orbit-ul">
                 {% for item in animation_info %}
-                <li id="{{item.title}}">
-                    <div >
-                        <img src="{{item.image}}" alt="">
-                    </div>
-                    <p>{{item.title}}</p>
-                </li>
+                    <li id="{{item.title}}">
+                        <div >
+                            <img src="{{item.image}}" alt="{{ item.title }}">
+                        </div>
+                        <p>{{item.title}}</p>
+                    </li>
                 {% endfor %}
             </ul>
         </div>
