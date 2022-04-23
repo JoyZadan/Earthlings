@@ -157,9 +157,9 @@ def categories():
 
 @app.route("/add_category", methods=["GET", "POST"])
 def add_category():
-    ''' 
+    """
     Add a category
-    '''
+    """
     if "user" in session:
         if request.method == "POST":
             category_name = request.form.get("category_name")
