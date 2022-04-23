@@ -177,8 +177,10 @@ def add_category():
 
 @app.route('/blog')
 def blog():
+    blog_list = mongo.db.blog.find()
+    category_list = mongo.db.categories.find()
 
-    return render_template('blog.html')
+    return render_template('blog.html', blog_list=blog_list, category_list=category_list)
 
 
 @app.route('/add_blog', methods=['GET', 'POST'])
