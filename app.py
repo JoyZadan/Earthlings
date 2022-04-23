@@ -169,6 +169,38 @@ def add_category():
     else:
         return render_template('404.html'), 404
 
+@app.route("/<category_id>/edit_category", methods=["GET", "POST"])
+def edit_category(category_id):
+    ''' 
+    Edit a category
+    '''
+    if "user" in session:
+        if request.method =="POST":
+            category_name = request.form.get("category_name")
+            category_description = request.form.get("category_description")
+            category = {
+                "name" : category_name,
+                "description" : category_description
+            }
+            mongo.db.categories.update_one({'_id': ObjectId(category_id)},
+                                          {'$set': category})
+            return redirect(url_for("categories"))
+        category = mongo.db.categories.find_one(
+            {'_id': ObjectId(category_id)})
+        return render_template("edit_category.html", 
+                                category=category)
+    else:
+        return render_template('404.html'), 404
+
+
+@app.route('/<category_id>/delete', methods=['GET', 'POST'])
+def delete_category(category_id):
+    '''
+    Delete a category 
+    '''
+    mongo.db.categories.delete_one({'_id': ObjectId(category_id)})
+    return redirect(url_for('categories'))
+
 
 @app.route('/blog')
 def blog():
