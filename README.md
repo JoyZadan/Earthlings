@@ -4,6 +4,24 @@
 
 Greetings! We are the Earthlings, and this is our project to help save the only planet we have. As well as featuring a calendar with ideas of what you can do to help the earth each month, our site features a blog with the ability for users to log in to the site to contribute ideas, tips, and conversations that help keep the world turning. Users might visit this site for several reasons: to learn this month's promoted tip; to share ideas, thoughts and inspirations with other users; and to discuss these things. As such, the site features the ability to create an account, log in and out, and post from an account; the site also features authentication to securely facilitate this.
 
+# Site features
+
+The site features full registration, log-in and log-out functionality with authentication built into both the front and back end to facilitate this.
+
+![Image of the navbar from the POV of a logged-out user](docs/readmeimages/navbarloggedout.png)
+
+A user who is not logged in will see the above options in the navbar. The Home, Calendar and Blogs links are visible for all users, while Register and Log in will be displayed only for users not logged in.
+
+![Image of the log in form](docs/readmeimages/registrationform.png)
+
+Above is the form presented to log in to the site for a logged-out user. As you can see, the form carries an option to click a link to the register account page should a user not already have an account.
+
+![Image of the navbar from the POV of a logged-in user](docs/readmeimages/navbarloggedin.png)
+
+Above is what a user sees from the navbar when logged in to the site. From this, you can also see the flash message presented when a user has just logged in.
+
+---
+
 ## Credits
 
 ### Technologies used
