@@ -48,7 +48,8 @@ def register():
             flash("Username already exists")
             return redirect(url_for("register"))
         validate_password = True if request.form.get("password") == request.form.get("password2") else flash("Passwords not matching")
-        if validate_password:
+        validate_password2 = True if request.form.get('password_is_valid') == 'yes' else flash("Passwords not valid")
+        if validate_password and validate_password2:
             register_user = {
                 "username": request.form.get("username").lower(),
                 "password": generate_password_hash(request.form.get("password"))
