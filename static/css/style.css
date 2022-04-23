@@ -31,10 +31,16 @@ body {
 }
 
 /*-----------------------header/navbar style */
-
-.header-style {
-    background-color: #C0CF50;
+.dropdown-item:hover {
+    background-color: #C0CF50 !important;
+    text-decoration: underline !important;
 }
+
+nav {
+    background-color: #C0CF50 !important;
+    padding: 1.2em 1em !important;
+}
+
 
 .logo {
     color: #000;

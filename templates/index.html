@@ -3,7 +3,9 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/landing.css') }}" type="text/css">
 {% endblock %}
 {% block js %}
-
+<script>
+    document.querySelector('nav').classList.add('hidden')
+</script>
 
 {% endblock %}
 {% block content %}
@@ -25,6 +27,7 @@
 
 
     <div class="orbit-wrapper">
+        
         <div class="orbit">
             <div class="center-image ">
             <img src="{{url_for('static', filename='assets/earth.svg')}}" alt="">
@@ -40,8 +43,15 @@
                 {% endfor %}
             </ul>
         </div>
-    </div>
+            <div class="chevron"><a href="#placeholder"  aria-label="link to calendar section"><i class="fas fa-icon fa-chevron-down"></i></a></div>
 
+        </div>
+
+
+
+<div id='placeholder' class="placeholder">
+
+</div>
 
 
 <script src="{{ url_for('static', filename='js/landing.js') }}"></script>
