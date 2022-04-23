@@ -1,10 +1,47 @@
 {% extends "base.html" %}
+{% block css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/landing.css') }}" type="text/css">
+{% endblock %}
+{% block js %}
 
+
+{% endblock %}
 {% block content %}
-    <p>homepage</p>
-    <p>testing heroku deployment</p>
+<!-- Trigger/Open The Modal -->
 
-    {% if session.user %}
-        <h2>Hello {{ session.user }}</h2>
-    {% endif %}
+{% for item in animation_info %}
+<!-- The Modal -->
+<div id="{{item.title}}-modal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>{{item.title}} Modal</h2>
+    <p>{{item.content}}</p>
+  </div>
+
+</div>
+{% endfor %}
+
+       
+    <div class="orbit-wrapper">
+        <div class="orbit">
+            <div class="center-image ">
+            <img src="{{url_for('static', filename='assets/earth.svg')}}" alt="">
+            </div>
+            <ul id="orbit-ul">
+                {% for item in animation_info %}
+                <li id="{{item.title}}">
+                    <div >
+                        <img src="{{item.image}}" alt="">
+                    </div>
+                    <p>{{item.title}}</p>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+<script src="{{ url_for('static', filename='js/landing.js') }}"></script>
+
 {% endblock %}

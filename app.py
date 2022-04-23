@@ -27,10 +27,58 @@ app.jinja_env.add_extension('jinja2.ext.loopcontrols')
 
 mongo = PyMongo(app)
 
+animation_info = [
+    {
+        'title': 'water',
+        'image': "static/assets/water.svg",
+        'content': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In enim velit, imperdiet et sapien ultricies, cursus interdum justo. Vivamus consequat, ligula quis faucibus ultricies, sapien sem aliquet dolor, sed blandit nunc turpis nec nisl. Sed consectetur malesuada sem, sed eleifend nulla mattis quis. Ut sollicitudin auctor dolor eget egestas. Sed in dolor eget massa volutpat cursus sed eget est. Maecenas euismod, purus ac efficitur euismod, ipsum quam vehicula metus, sit amet ullamcorper orci orci in leo. Maecenas porttitor fringilla mi, vitae laoreet purus. Suspendisse ultrices eros pharetra, lacinia erat sit amet, sollicitudin augue. Cras iaculis aliquet massa, at cursus nisl elementum eu. In sed metus pharetra justo dictum elementum. Etiam pulvinar augue in mauris pellentesque bibendum. Maecenas non venenatis felis, non malesuada urna.'
+
+    },
+    {
+        'title': 'plants',
+        'image': 'static/assets/leaf.svg',
+        'content': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In enim velit, imperdiet et sapien ultricies, cursus interdum justo. Vivamus consequat, ligula quis faucibus ultricies, sapien sem aliquet dolor, sed blandit nunc turpis nec nisl. Sed consectetur malesuada sem, sed eleifend nulla mattis quis. Ut sollicitudin auctor dolor eget egestas. Sed in dolor eget massa volutpat cursus sed eget est. Maecenas euismod, purus ac efficitur euismod, ipsum quam vehicula metus, sit amet ullamcorper orci orci in leo. Maecenas porttitor fringilla mi, vitae laoreet purus. Suspendisse ultrices eros pharetra, lacinia erat sit amet, sollicitudin augue. Cras iaculis aliquet massa, at cursus nisl elementum eu. In sed metus pharetra justo dictum elementum. Etiam pulvinar augue in mauris pellentesque bibendum. Maecenas non venenatis felis, non malesuada urna.'
+
+    },
+    {
+        'title': 'transport',
+        'image': 'static/assets/bus.svg',
+        'content': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In enim velit, imperdiet et sapien ultricies, cursus interdum justo. Vivamus consequat, ligula quis faucibus ultricies, sapien sem aliquet dolor, sed blandit nunc turpis nec nisl. Sed consectetur malesuada sem, sed eleifend nulla mattis quis. Ut sollicitudin auctor dolor eget egestas. Sed in dolor eget massa volutpat cursus sed eget est. Maecenas euismod, purus ac efficitur euismod, ipsum quam vehicula metus, sit amet ullamcorper orci orci in leo. Maecenas porttitor fringilla mi, vitae laoreet purus. Suspendisse ultrices eros pharetra, lacinia erat sit amet, sollicitudin augue. Cras iaculis aliquet massa, at cursus nisl elementum eu. In sed metus pharetra justo dictum elementum. Etiam pulvinar augue in mauris pellentesque bibendum. Maecenas non venenatis felis, non malesuada urna.'
+    },
+    {
+        'title': 'bag',
+        'image': 'static/assets/bag.svg',
+        'content': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In enim velit, imperdiet et sapien ultricies, cursus interdum justo. Vivamus consequat, ligula quis faucibus ultricies, sapien sem aliquet dolor, sed blandit nunc turpis nec nisl. Sed consectetur malesuada sem, sed eleifend nulla mattis quis. Ut sollicitudin auctor dolor eget egestas. Sed in dolor eget massa volutpat cursus sed eget est. Maecenas euismod, purus ac efficitur euismod, ipsum quam vehicula metus, sit amet ullamcorper orci orci in leo. Maecenas porttitor fringilla mi, vitae laoreet purus. Suspendisse ultrices eros pharetra, lacinia erat sit amet, sollicitudin augue. Cras iaculis aliquet massa, at cursus nisl elementum eu. In sed metus pharetra justo dictum elementum. Etiam pulvinar augue in mauris pellentesque bibendum. Maecenas non venenatis felis, non malesuada urna.'
+
+    },
+    {
+        'title': 'cycle',
+        'image': 'static/assets/bicycle.svg',
+        'content': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In enim velit, imperdiet et sapien ultricies, cursus interdum justo. Vivamus consequat, ligula quis faucibus ultricies, sapien sem aliquet dolor, sed blandit nunc turpis nec nisl. Sed consectetur malesuada sem, sed eleifend nulla mattis quis. Ut sollicitudin auctor dolor eget egestas. Sed in dolor eget massa volutpat cursus sed eget est. Maecenas euismod, purus ac efficitur euismod, ipsum quam vehicula metus, sit amet ullamcorper orci orci in leo. Maecenas porttitor fringilla mi, vitae laoreet purus. Suspendisse ultrices eros pharetra, lacinia erat sit amet, sollicitudin augue. Cras iaculis aliquet massa, at cursus nisl elementum eu. In sed metus pharetra justo dictum elementum. Etiam pulvinar augue in mauris pellentesque bibendum. Maecenas non venenatis felis, non malesuada urna.'
+
+    },
+    {
+        'title': 'solar',
+        'image': 'static/assets/sun.svg',
+        'content': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In enim velit, imperdiet et sapien ultricies, cursus interdum justo. Vivamus consequat, ligula quis faucibus ultricies, sapien sem aliquet dolor, sed blandit nunc turpis nec nisl. Sed consectetur malesuada sem, sed eleifend nulla mattis quis. Ut sollicitudin auctor dolor eget egestas. Sed in dolor eget massa volutpat cursus sed eget est. Maecenas euismod, purus ac efficitur euismod, ipsum quam vehicula metus, sit amet ullamcorper orci orci in leo. Maecenas porttitor fringilla mi, vitae laoreet purus. Suspendisse ultrices eros pharetra, lacinia erat sit amet, sollicitudin augue. Cras iaculis aliquet massa, at cursus nisl elementum eu. In sed metus pharetra justo dictum elementum. Etiam pulvinar augue in mauris pellentesque bibendum. Maecenas non venenatis felis, non malesuada urna.'
+
+    },
+    {
+        'title': 'heat',
+        'image': 'static/assets/thermometer.svg',
+        'content': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In enim velit, imperdiet et sapien ultricies, cursus interdum justo. Vivamus consequat, ligula quis faucibus ultricies, sapien sem aliquet dolor, sed blandit nunc turpis nec nisl. Sed consectetur malesuada sem, sed eleifend nulla mattis quis. Ut sollicitudin auctor dolor eget egestas. Sed in dolor eget massa volutpat cursus sed eget est. Maecenas euismod, purus ac efficitur euismod, ipsum quam vehicula metus, sit amet ullamcorper orci orci in leo. Maecenas porttitor fringilla mi, vitae laoreet purus. Suspendisse ultrices eros pharetra, lacinia erat sit amet, sollicitudin augue. Cras iaculis aliquet massa, at cursus nisl elementum eu. In sed metus pharetra justo dictum elementum. Etiam pulvinar augue in mauris pellentesque bibendum. Maecenas non venenatis felis, non malesuada urna.'
+
+    },
+    {
+        'title': 'energy',
+        'image': 'static/assets/electricity.svg',
+        'content': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In enim velit, imperdiet et sapien ultricies, cursus interdum justo. Vivamus consequat, ligula quis faucibus ultricies, sapien sem aliquet dolor, sed blandit nunc turpis nec nisl. Sed consectetur malesuada sem, sed eleifend nulla mattis quis. Ut sollicitudin auctor dolor eget egestas. Sed in dolor eget massa volutpat cursus sed eget est. Maecenas euismod, purus ac efficitur euismod, ipsum quam vehicula metus, sit amet ullamcorper orci orci in leo. Maecenas porttitor fringilla mi, vitae laoreet purus. Suspendisse ultrices eros pharetra, lacinia erat sit amet, sollicitudin augue. Cras iaculis aliquet massa, at cursus nisl elementum eu. In sed metus pharetra justo dictum elementum. Etiam pulvinar augue in mauris pellentesque bibendum. Maecenas non venenatis felis, non malesuada urna.'
+    }
+]
 
 @app.route("/")
 def index():
-    return render_template("index.html", index_page=True)
+    return render_template("index.html", index_page=True, animation_info=animation_info)
 
 
 
