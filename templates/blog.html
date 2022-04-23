@@ -5,32 +5,29 @@
     <h1>People thoughts</h1>
     {#    {% if blogs %}#}
     <ul>
-        {#            {% for blog in blogs %}#}
+        {% for blog in blog_list %}
         <li>
             <div class="blog-container">
-                {% if context %}
-                    {% for blog in context.blog_list %}
+
+
                         <div class="row">
                             <div class="col">
                                 <span>{{ blog.title }}</span>
                                 <div class="category-container mt-3">
-                                    {% for category in context.category_list %}
+                                    {% for category in category_list %}
                                         <ol class="breadcrumb" style="--bs-breadcrumb-divider: '';">
                                             <li class="breadcrumb-item">
                                                 <a href="#" class="btn btn-sm btn-outline-secondary">
                                                     {% for item in blog.categories %}
-                                                        {% if item == category._id %}
+{#                                                        {% if item == category._id %}#}
                                                             {{ item }}
-                                                        {% endif %}
+{#                                                        {% endif %}#}
 
                                                     {% endfor %}
                                                 </a>
                                             </li>
-                                            <li class="breadcrumb-item" aria-current="page"><a href="#"
-                                                                                               class="btn btn-sm btn-outline-secondary">category2</a>
-                                            </li>
                                         </ol>
-                                    {% endfor %}
+
 
 
                                 </div>
@@ -38,20 +35,16 @@
                         </div>
                         <div class="row">
                             <div class="col">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi, explicabo, ut!
-                                    Esse
-                                    excepturi exercitationem fuga ipsa odit omnis quaerat ullam? At doloribus explicabo
-                                    fugit id
-                                    quisquam, rem repellendus unde voluptatum.</p>
+                                <p></p>
                                 <span>By: somename</span>
                             </div>
                         </div>
                     {% endfor %}
-                {% endif %}
+
             </div>
 
         </li>
-        {#            {% endfor %}#}
+        {% endfor %}
     </ul>
     {#    {% else %}#}
     {#        <p>No records found.</p>#}
