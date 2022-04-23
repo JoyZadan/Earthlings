@@ -47,3 +47,8 @@ body {
 .nav-item {
     margin: auto;
 }
+
+/*-----------------------calendar style */
+.calendar-header {
+    margin: 0.5rem auto;
+}
