@@ -84,5 +84,6 @@ $("#password2").on('change keydown paste input', function(e){
         document.getElementById("password2_error").innerHTML = "Passwords entered are not the same!";
    }else {
         document.getElementById("password2_error").classList.add('hide');
+        document.getElementById('register_submit').classList.remove('disabled')
    }
 });
