@@ -3,63 +3,45 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/landing.css') }}" type="text/css">
 {% endblock %}
 {% block js %}
-<script src="{{ url_for('static', filename='js/landing.js') }}"></script>
+
 
 {% endblock %}
 {% block content %}
-    
+<!-- Trigger/Open The Modal -->
+
+{% for item in animation_info %}
+<!-- The Modal -->
+<div id="{{item.title}}-modal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>{{item.title}} Modal</h2>
+    <p>{{item.content}}</p>
+  </div>
+
+</div>
+{% endfor %}
+
+       
     <div class="orbit-wrapper">
         <div class="orbit">
-            <div class="center-image">
-            <!-- <img src="assets/woman.png" alt=""> -->
+            <div class="center-image ">
             <img src="{{url_for('static', filename='assets/earth.svg')}}" alt="">
             </div>
-            <ul>
-            <li>
-                <div>
-                    <img src="{{url_for('static', filename='assets/water.svg')}}" alt="">
-                </div>
-                <p>Water</p>
-            </li>
-             <li>
-                <div>
-                    <img src="{{url_for('static', filename='assets/leaf.svg')}}" alt="">
-                </div>
-                <p>plants</p>
-            </li>
-            <li>
-                <div><img src="{{url_for('static', filename='assets/bus.svg')}}" alt=""></div>
-                <p>Transport</p>
-            </li>
-            <li>
-                <div><img src="{{url_for('static', filename='assets/bag.svg')}}" alt=""></div>
-                <p>Bag</p>
-            </li>
-            <li>
-                <div><img src="{{url_for('static', filename='assets/bicycle.svg')}}" alt=""></div>
-                <p>cycle</p>
-            </li>
-            <li>
-                <div><img src="{{url_for('static', filename='assets/sun.svg')}}" alt=""></div>
-                <p>Solar</p>
-            </li>
-            
-           <li>
-                <div><img src="{{url_for('static', filename='assets/thermometer.svg')}}" alt=""></div>
-                <p>Heat</p>
-            </li>
-            <li>
-                <div><img src="{{url_for('static', filename='assets/electricity.svg')}}" alt=""></div>
-                <p>Energy</p>
-            </li>
+            <ul id="orbit-ul">
+                {% for item in animation_info %}
+                <li id="{{item.title}}">
+                    <div >
+                        <img src="{{item.image}}" alt="">
+                    </div>
+                    <p>{{item.title}}</p>
+                </li>
+                {% endfor %}
             </ul>
         </div>
-
-
-
-
-
-
     </div>
+
+<script src="{{ url_for('static', filename='js/landing.js') }}"></script>
 
 {% endblock %}
