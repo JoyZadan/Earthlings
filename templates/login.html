@@ -12,8 +12,8 @@
                            type="text"
                            minlength="3"
                            maxlength="15"
-                           pattern="^[a-zA-Z0-9]{3,15}$"
                            required>
+                    <span class="error-message hide" id="username_error">Error message</span>
                 </div>
                 <div class="mb-3">
                     <label for="password" class="form-label">Password:</label>
@@ -24,8 +24,8 @@
                            name="password"
                            minlength="5"
                            maxlength="15"
-                           pattern="^[a-zA-Z0-9]{5,15}$"
                            required>
+                    <span class="error-message hide" id="password_error">Error password message</span>
                 </div>
 
                 <button type="submit" class="btn btn-primary mt-3">Submit</button>

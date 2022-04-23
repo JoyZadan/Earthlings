@@ -32,7 +32,13 @@ mongo = PyMongo(app)
 def index():
     animation_info = list(mongo.db.animation.find())
     # mongo.db.animation.
-    return render_template("index.html", index_page=True, animation_info=animation_info)
+    return render_template("index.html", index_page=True,
+                           animation_info=animation_info)
+
+
+@app.route('/calendar')
+def calendar():
+    return render_template("calendar.html")
 
 
 # ==========handle login logout register======================================
@@ -47,12 +53,16 @@ def register():
         if existing_user:
             flash("Username already exists")
             return redirect(url_for("register"))
-        validate_password = True if request.form.get("password") == request.form.get("password2") else flash("Passwords not matching")
-        validate_password2 = True if request.form.get('password_is_valid') == 'yes' else flash("Passwords not valid")
+        validate_password = True if request.form.get(
+            "password") == request.form.get("password2") else flash(
+            "Passwords not matching")
+        validate_password2 = True if request.form.get(
+            'password_is_valid') == 'yes' else flash("Passwords not valid")
         if validate_password and validate_password2:
             register_user = {
                 "username": request.form.get("username").lower(),
-                "password": generate_password_hash(request.form.get("password"))
+                "password": generate_password_hash(
+                    request.form.get("password"))
             }
             mongo.db.users.insert_one(register_user)
             # put the new user into 'session' cookie
@@ -140,7 +150,7 @@ def categories():
     if "user" in session:
         categories = list(mongo.db.categories.find())
         return render_template("categories.html",
-                            categories=categories)
+                               categories=categories)
     else:
         return render_template('404.html'), 404
 
@@ -151,12 +161,12 @@ def add_category():
     Add a category
     '''
     if "user" in session:
-        if request.method =="POST":
+        if request.method == "POST":
             category_name = request.form.get("category_name")
             category_description = request.form.get("category_description")
             category = {
-                "name" : category_name,
-                "description" : category_description
+                "name": category_name,
+                "description": category_description
             }
             mongo.db.categories.insert_one(category)
             return redirect(url_for("categories"))
