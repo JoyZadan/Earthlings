@@ -103,6 +103,11 @@
                         </li>
                         {% if session.user %}
                             <li class="nav-item">
+                                <a href="{{ url_for('categories') }}" class="btn btn-lg">
+                                    <p>Categories</p>
+                                </a> 
+                            </li>
+                            <li class="nav-item">
                                 <a href="{{ url_for('profile') }}" class="btn btn-lg">
                                     <p>My account</p>
                                 </a> 
