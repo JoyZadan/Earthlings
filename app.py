@@ -234,6 +234,15 @@ def edit_category(category_id):
         return render_template('404.html'), 404
 
 
+@app.route('/<category_id>/delete', methods=['GET', 'POST'])
+def delete_category(category_id):
+    '''
+    Delete a category 
+    '''
+    mongo.db.categories.delete_one({'_id': ObjectId(category_id)})
+    return redirect(url_for('categories'))
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
