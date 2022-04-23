@@ -3,8 +3,24 @@
 {% block content %}
 
     <h1>People thoughts</h1>
-    {#    {% if blogs %}#}
+    <div class="row">
+        <div class="col">
+            {% if filter %}
+                <ol class="breadcrumb" style="--bs-breadcrumb-divider: '';">
+                    <li class="breadcrumb-item"> Filtering by:
+                        <span class="btn btn-sm btn-outline-secondary">
+                            {{ filter.name }} 
+                        </span>
+                        <a href="{{ url_for('blog') }}" class="btn btn-sm btn-outline-danger">X</a>
+                    </li>
+
+                </ol>
+            {% endif %}
+        </div>
+    </div>
     <ul>
+    {% if blog_list %}
+
         {% for blog in blog_list %}
             <li>
                 <div class="blog-container-item">
@@ -15,13 +31,14 @@
                                 <ol class="breadcrumb" style="--bs-breadcrumb-divider: '';">
                                     {% for category in category_list %}
                                         {% for item in blog.categories %}
-                                                {% if item == category._id | string %}
-                                                    <li class="breadcrumb-item">
-                                                        <a href="#" class="btn btn-sm btn-outline-secondary">
-                                                            {{ category.name }}
-                                                        </a>
-                                                    </li>
-                                                {% endif %}
+                                            {% if item == category._id | string %}
+                                                <li class="breadcrumb-item">
+                                                    <a href="{{ url_for('blog', filter=item ) }}"
+                                                       class="btn btn-sm btn-outline-secondary">
+                                                        {{ category.name }}
+                                                    </a>
+                                                </li>
+                                            {% endif %}
 
                                         {% endfor %}
                                     {% endfor %}
@@ -39,8 +56,8 @@
             </li>
         {% endfor %}
     </ul>
-    {#    {% else %}#}
-    {#        <p>No records found.</p>#}
-    {#    {% endif %}#}
+        {% else %}
+            <p>No records found.</p>
+        {% endif %}
     <a href="{{ url_for('add_blog') }}" class="btn btn-secondary">Share your ideas</a>
 {% endblock %}
