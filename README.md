@@ -66,7 +66,7 @@ The home page features an animation of moving buttons revolving around a central
 * [dnspython](https://www.dnspython.org/)
     * Dnspython is a DNS toolkit for python.
 
-* [Werkezeug](https://wsgi.readthedocs.io/en/latest/what.html)
+* [Werkzeug](https://wsgi.readthedocs.io/en/latest/what.html)
     * Werkzeug is a Web Server Gateway Interface web application library.
 
 * [Jinja](https://www.palletsprojects.com/p/jinja/)
