@@ -221,3 +221,38 @@ picture {
   text-decoration: none;
   cursor: pointer;
 }
+
+
+.placeholder {
+   min-height: 100vh;
+}
+
+.hidden {
+  display: none !important;
+}
+
+
+.chevron {
+  font-size: 3rem;
+  margin: 0 auto !important;
+  position: relative;
+  top: 18rem;
+  
+}
+
+
+.chevron a {
+  animation: color 4s infinite cubic-bezier(.79,.14,.15,.86);
+}
+
+@keyframes color {
+  100% {
+      color: var(--main-dark);
+    }
+    50% {
+      color: rgb(211, 207, 207);
+    }
+    0% {
+      color: var(--main-dark);
+    }
+  }
