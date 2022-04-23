@@ -80,7 +80,7 @@
     <div class="collapse navbar-collapse"  id="navbarNav">
       <ul class="navbar-nav ">
        <li><a class="dropdown-item" href="{{ url_for('calendar')}}">Calendar</a></li>
-            <li><a class="dropdown-item" href="{{ url_for('blog')}}">Feed</a></li>
+            <li><a class="dropdown-item" href="{{ url_for('blog')}}">Blog</a></li>
             {% if session.user %}
             <li><a class="dropdown-item" href="{{ url_for('categories') }}">Categories</a></li>
             <li><a class="dropdown-item" href="{{ url_for('profile') }}">Profile</a></li>
