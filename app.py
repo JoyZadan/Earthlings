@@ -135,9 +135,12 @@ def page_not_found(*args, **kwargs):
 
 @app.route("/categories")
 def categories():
-    categories = list(mongo.db.categories.find())
-    return render_template("categories.html",
+    if "user" in session:
+        categories = list(mongo.db.categories.find())
+        return render_template("categories.html",
                             categories=categories)
+    else:
+        return render_template('404.html'), 404
 
 
 if __name__ == "__main__":
