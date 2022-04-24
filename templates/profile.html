@@ -42,7 +42,13 @@
                         </div>
                         <div class="row">
                             <div class="col">
-                                <span class="btn btn-sm btn-outline-info" id="edit_{{ blog._id }}">Edit</span> <span class="btn btn-sm btn-outline-danger"id="delete_{{ blog._id }}">Delete</span>
+                                <span class="btn btn-sm btn-outline-info" id="edit_{{ blog._id }}">Edit</span>
+                                <a href="#"
+                                   id="{{ blog._id }}"
+                                   class="btn btn-sm btn-outline-danger"
+                                   data-id="{{ blog._id }}"
+                                   data-bs-toggle="modal"
+                                   data-bs-target="#delete_modal">Delete</a>
                             </div>
                         </div>
                     </div>
@@ -54,4 +60,36 @@
         <p>No records found.</p>
     {% endif %}
 
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#delete_modal">
+        Launch static backdrop modal
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="delete_modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+         aria-labelledby="delete_modalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="delete_modalLabel">Are you sure you want to remove this?</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Action cannot be undone.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <a href="#" type="button" id="modal_delete_url" class="btn btn-primary">DELETE</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block extra_js %}
+    <script>
+        document.getElementById('delete_modal').addEventListener('show.bs.modal', (e) => {
+            document.getElementById("modal_delete_url").href = `/delete_blog/${e.relatedTarget.dataset.id}`
+        });
+    </script>
 {% endblock %}
