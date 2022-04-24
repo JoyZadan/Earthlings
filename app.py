@@ -224,18 +224,25 @@ def blog():
 
 @app.route('/add_blog', methods=['GET', 'POST'])
 def add_blog():
-    blog_categories = mongo.db.categories.find()
-    if request.method == 'POST':
-        if "user" in session:
-            submit = {
-                'categories': request.form.getlist('categories_list'),
-                'title': request.form.get('title'),
-                'blog_text': request.form.get('blog_text'),
-                'created_by': session['user']
-            }
-            mongo.db.blog.insert_one(submit)
-            flash("Record {} created".format(submit['title']))
-            return render_template('blog.html')
+    # Check if user is in session
+    if "user" in session:
+        blog_categories = mongo.db.categories.find()
+        blog_list = list(mongo.db.blog.find())
+        category_list = list(mongo.db.categories.find())
+        if request.method == 'POST':
+            if "user" in session:
+                submit = {
+                    'categories': request.form.getlist('categories_list'),
+                    'title': request.form.get('title'),
+                    'blog_text': request.form.get('blog_text'),
+                    'created_by': session['user']
+                }
+                mongo.db.blog.insert_one(submit)
+                flash("Record {} created".format(submit['title']))
+                return render_template('blog.html', blog_list=blog_list,
+                           category_list=category_list)
+    else:
+        return redirect(url_for("login"))
     return render_template('add_blog.html', categories=blog_categories)
 
 
