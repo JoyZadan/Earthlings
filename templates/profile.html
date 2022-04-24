@@ -27,7 +27,6 @@
                                                         </span>
                                                     </li>
                                                 {% endif %}
-
                                             {% endfor %}
                                         {% endfor %}
                                     </ol>
@@ -59,11 +58,6 @@
     {% else %}
         <p>No records found.</p>
     {% endif %}
-
-    <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#delete_modal">
-        Launch static backdrop modal
-    </button>
 
     <!-- Modal -->
     <div class="modal fade" id="delete_modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"

@@ -247,6 +247,33 @@ def add_blog():
     return render_template('add_blog.html', categories=blog_categories)
 
 
+@app.route('/edit_blog/<blog_id>', methods=['GET', 'POST'])
+def edit_blog(blod_id):
+
+    blog = mongo.db.blog.find_one(
+        {"_id": ObjectId(blod_id)})
+
+    if "user" in session:
+        blog_categories = mongo.db.categories.find()
+
+        category_list = list(mongo.db.categories.find())
+        if request.method == 'POST':
+            if "user" in session:
+                submit = {
+                    'categories': request.form.getlist('categories_list'),
+                    'title': request.form.get('title'),
+                    'blog_text': request.form.get('blog_text'),
+                    'created_by': session['user']
+                }
+                mongo.db.blog.insert_one(submit)
+                flash("Record {} created".format(submit['title']))
+                return render_template('blog.html', blog_list=blog,
+                                       category_list=category_list)
+    else:
+        return redirect(url_for("login"))
+    return render_template('edit_blog.html', categories=blog_categories)
+
+
 @app.route('/delete_blog/<blog_id>')
 def delete_blog(blog_id):
     if "user" in session:
