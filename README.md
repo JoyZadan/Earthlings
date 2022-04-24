@@ -30,6 +30,18 @@ Above is what a user sees from the navbar when logged in to the site. From this,
 
 The home page features an animation of moving buttons revolving around a central, stationary image. Clicking any of these buttons brings up a modal containing information on its theme, and good advice for site users to lower their impact on the planet by making changes relating to this theme.
 
+### Categories maintenance (CRUD suite)
+
+- The available list of categories to add to the blogs can be maintained from a menu option on the nav manu once signed in.
+- The option is not available to users that are not logged in.
+- From the List Categories page categories can be added, edited and deleted.
+- They can only be deleted if no blogs are referring to them.
+
+![Image of the list categories screen](docs/readmeimages/list-categories.jpg)
+![Image of Add Category screen](docs/readmeimages/add-category.jpg)
+![Image of Edit Category screen](docs/readmeimages/edit-category.jpg)
+
+
 ---
 
 ## Wireframes
