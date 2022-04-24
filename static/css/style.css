@@ -44,6 +44,12 @@ body {
     color: red;
 }
 
+.blog-list {
+    list-style: none;
+}
+.breadcrumb-item+.breadcrumb-item::before {
+    padding-right: 0;
+}
 /*-----------------------header/navbar style */
 .dropdown-item:hover {
     background-color: #C0CF50 !important;
