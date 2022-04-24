@@ -196,16 +196,15 @@ def edit_category(category_id):
 
 @app.route('/<category_id>/delete', methods=['GET', 'POST'])
 def delete_category(category_id):
-    '''
-    Delete a category 
-    '''
+    """
+    Delete a category
+    """
     mongo.db.categories.delete_one({'_id': ObjectId(category_id)})
     return redirect(url_for('categories'))
 
 
 @app.route('/blog')
 def blog():
-    print(request.args.get('filter'))
     query_filter = None
     if request.args.get("filter"):
         query = request.args.get("filter")
@@ -254,9 +253,7 @@ def edit_blog(blog_id):
         {"_id": ObjectId(blog_id)})
 
     if "user" in session:
-        blog_categories = mongo.db.categories.find()
-
-        category_list = list(mongo.db.categories.find())
+        blog_categories = list(mongo.db.categories.find())
         if request.method == 'POST':
             if "user" in session:
                 if single_blog['created_by'] == session['user']:
