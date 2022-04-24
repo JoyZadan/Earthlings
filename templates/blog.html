@@ -2,7 +2,19 @@
 
 {% block content %}
 
-    <h1>People thoughts</h1>
+    <h1 class="center-align">People thoughts</h1>
+    <div class="row">
+        <div class="col">
+            {% if session.user %}
+                <a href="{{ url_for('add_blog') }}" class="btn btn-secondary">Share your ideas</a>
+            {% else %}
+                <h5>Want to join the discussion?</h5>
+                <p>Please <a href="{{ url_for('login') }}">log in</a> to the site or <a
+                        href="{{ url_for('register') }}">register</a>
+                    if you wish to submit a new blog post.</p>
+            {% endif %}
+        </div>
+    </div>
     <div class="row">
         <div class="col">
             {% if filter %}
@@ -18,53 +30,46 @@
             {% endif %}
         </div>
     </div>
-    <ul>
-    {% if blog_list %}
-
-        {% for blog in blog_list %}
-            <li>
-                <div class="blog-container-item">
-                    <div class="row">
-                        <div class="col">
-                            <span>title{{ blog.title }}</span>
-                            <div class="category-container mt-3" aria-label="breadcrumb">
-                                <ol class="breadcrumb" style="--bs-breadcrumb-divider: '';">
-                                    {% for category in category_list %}
-                                        {% for item in blog.categories %}
-                                            {% if item == category._id | string %}
-                                                <li class="breadcrumb-item">
-                                                    <a href="{{ url_for('blog', filter=item ) }}"
-                                                       class="btn btn-micro btn-outline-secondary">
-                                                        {{ category.name }}
-                                                    </a>
-                                                </li>
-                                            {% endif %}
-
+    <ul class="blog-list">
+        {% if blog_list %}
+            {% for blog in blog_list %}
+                <li class="mt-3">
+                    <div class="blog-container-item">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5><i class="fa fa-user"></i> <span>{{ blog.created_by | capitalize }}</span></h5>
+                                <div class="category-container mt-3" aria-label="breadcrumb">
+                                    <ol class="breadcrumb" style="--bs-breadcrumb-divider: '';">
+                                        {% for category in category_list %}
+                                            {% for item in blog.categories %}
+                                                {% if item == category._id | string %}
+                                                    <li class="breadcrumb-item align-items-center justify-content-space-between">
+                                                        <a href="{{ url_for('blog', filter=item ) }}"
+                                                           class="btn btn-micro btn-outline-secondary">
+                                                            {{ category.name }}
+                                                        </a>
+                                                    </li>
+                                                {% endif %}
+                                            {% endfor %}
                                         {% endfor %}
-                                    {% endfor %}
-                                </ol>
+                                    </ol>
+                                </div>
+
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">{{ blog.title | upper }}</h5>
+                                <p class="card-text">{{ blog.blog_text }}</p>
+                                {#                                <a href="#" class="btn btn-primary">Go somewhere</a>#}
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col">
-                            <p>{{ blog.blog_text }}</p>
-                            <span>By: {{ blog.created_by }}</span>
-                        </div>
-                    </div>
-                </div>
-            </li>
-        {% endfor %}
-    </ul>
-    {% else %}
-        <p>No records found.</p>
-    {% endif %}
+                </li>
+            {% endfor %}
+            </ul>
+        {% else %}
+            <p>No records found.</p>
+        {% endif %}
 
-    {% if session.user %}
-        <a href="{{ url_for('add_blog') }}" class="btn btn-secondary">Share your ideas</a>
-    {% else %}
-        <h5>Want to join the discussion?</h5>
-        <p>Please <a href="{{ url_for('login') }}">log in</a> to the site or <a href="{{ url_for('register') }}">register</a> if you wish to submit a new blog post.</p>
-    {% endif %}
+
 
 {% endblock %}
