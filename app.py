@@ -259,16 +259,20 @@ def edit_blog(blog_id):
         category_list = list(mongo.db.categories.find())
         if request.method == 'POST':
             if "user" in session:
-                submit = {
-                    'categories': request.form.getlist('categories_list'),
-                    'title': request.form.get('title'),
-                    'blog_text': request.form.get('blog_text'),
-                    'created_by': session['user']
-                }
-                mongo.db.blog.update_one({"_id": ObjectId(blog_id)},
-                                         {"$set": submit})
-                flash("Record {} updated".format(submit['title']))
-                return redirect(url_for('profile'))
+                if single_blog['created_by'] == session['user']:
+                    submit = {
+                        'categories': request.form.getlist('categories_list'),
+                        'title': request.form.get('title'),
+                        'blog_text': request.form.get('blog_text'),
+                        'created_by': session['user']
+                    }
+                    mongo.db.blog.update_one({"_id": ObjectId(blog_id)},
+                                             {"$set": submit})
+                    flash("Record {} updated".format(submit['title']))
+                    return redirect(url_for('profile'))
+                else:
+                    flash('You only allowed to remove your own records')
+                    return redirect(url_for('profile'))
     else:
         return redirect(url_for("login"))
     return render_template('edit_blog.html', categories=blog_categories, blog=single_blog)
