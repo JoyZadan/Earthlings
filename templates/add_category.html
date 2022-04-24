@@ -1,19 +1,25 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="row d-flex align-items-center flex-column">
-    <h3 class="text-center">Add Category</h3>
-    <form class="w-75" method="POST" action="{{ url_for('add_category') }}">
-        <div class="mb-3">
-            <label for="category_name" class="form-label">Category Name</label>
-            <input type="text" class="form-control" id="category_name" name="category_name" required>
-        </div>
-        <div class="mb-3">
-            <label for="category_description" class="form-label">Description</label>
-            <input type="text" class="form-control" id="category_description" name="category_description" required>
-        </div>
-        <button type="submit" class="btn btn-secondary">Save</button>
-        <a href="{{ url_for('categories') }}" class="btn btn-outline-secondary">Cancel</a>
-    </form>
+<div class="text-center">
+    <h1 class="text-center">Add Category</h1>
+</div>
+<div class="row my-5">
+    <div class="row d-flex align-items-center flex-column ">
+        <form class="w-75" method="POST" action="{{ url_for('add_category') }}">
+            <div class="mb-3">
+                <label for="category_name" class="form-label">Category Name</label>
+                <input type="text" class="form-control" id="category_name" name="category_name" required>
+            </div>
+            <div class="mb-3">
+                <label for="category_description" class="form-label">Description</label>
+                <input type="text" class="form-control" id="category_description" name="category_description" required>
+            </div>
+            <div class="my-5">
+                <button type="submit" class="btn btn-success">Save</button>
+                <a href="{{ url_for('categories') }}" class="btn btn-outline-success">Cancel</a>
+            </div>
+        </form>
+    </div>
 </div>
 {% endblock %}
