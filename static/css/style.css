@@ -93,7 +93,8 @@ nav {
     background:#fff;
     clear:left;
     font:14px Helvetica,Arial,sans-serif; 
-    width:600px; margin: 2em auto;
+    width: 90%;
+    max-width:600px; margin: 2em auto;
     border-radius: 10px;
 }
 /* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
