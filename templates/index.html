@@ -1,11 +1,9 @@
 {% extends "base.html" %}
+
 {% block css %}
     <link rel="stylesheet" href="{{ url_for('static', filename='css/landing.css') }}" type="text/css">
 {% endblock %}
 {% block js %}
-<script>
-    document.querySelector('nav').classList.add('hidden')
-</script>
 
 {% endblock %}
 {% block content %}
@@ -43,15 +41,16 @@
                 {% endfor %}
             </ul>
         </div>
-            <div class="chevron"><a href="#placeholder"  aria-label="link to calendar section"><i class="fas fa-icon fa-chevron-down"></i></a></div>
+            <div class="chevron"><a href="#cal"  aria-label="link to calendar section"><i class="fas fa-icon fa-chevron-down"></i></a></div>
 
         </div>
 
+{% include "calendar.html" %}
 
+{% block calendar %}
 
-<div id='placeholder' class="placeholder">
+{% endblock %}
 
-</div>
 
 
 <script src="{{ url_for('static', filename='js/landing.js') }}"></script>

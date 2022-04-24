@@ -67,6 +67,10 @@ nav {
 }
 
 /*-----------------------calendar style */
+#cal {
+    margin-top: 20em;
+}
+
 .calendar-header {
     margin: 0.75rem auto;
 }

@@ -233,6 +233,7 @@ picture {
 
 nav {
   transition:  250ms ease-in-out;
+  opacity: 0;
 }
 
 
