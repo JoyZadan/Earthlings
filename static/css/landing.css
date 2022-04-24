@@ -127,7 +127,7 @@ picture {
   transition: opacity 500ms;
   opacity: 0;
   position: relative;
-  top: 9px
+  top: 8px;
 }
 .orbit li:hover > p {
   opacity: 1;
@@ -204,7 +204,8 @@ picture {
   margin: 15% auto; /* 15% from the top and centered */
   padding: 20px;
   border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
+  width: 90%; /* Could be more or less, depending on screen size */
+  max-width: 600px;
 }
 
 /* The Close Button */
