@@ -5,14 +5,20 @@
     <h1>People thoughts</h1>
 
     <div class="blog-container">
-        <form method="POST" action="{{ url_for('edit_blog') }}">
+        <form method="POST" action="{{ url_for('edit_blog', blog_id=blog._id) }}">
             <div class="mb-3">
-                <select class="form-select" multiple aria-label="select multiple categories" size="3" name="categories_list">
-                    <option selected disabled>Select categories</option>
+                <select class="form-select" multiple aria-label="select multiple categories" size="3"
+                        name="categories_list">
+                    <option  disabled>Select categories</option>
                     {% if categories %}
-{#                        TODO: add selected state based on previous selection #}
-                        {% for category in categories %}
-                        <option value="{{ category._id }}">{{ category.name }}</option>
+                        {% for blog_category in blog.categories %}
+                            {% for category in categories %}
+                                {% if category._id | string == blog_category %}
+                                    <option value="{{ category._id }}" selected>{{ category.name }}</option>
+                                {% else %}
+                                    <option value="{{ category._id }}">{{ category.name }}</option>
+                                {% endif %}
+                            {% endfor %}
                         {% endfor %}
                     {% else %}
                         <option value="-1">No categories added</option>
@@ -21,11 +27,16 @@
             </div>
             <div class="mb-3">
                 <label for="title" class="form-label">Title</label>
-                <input type="text" class="form-control" id="title" aria-describedby="Blog title" name="title">
+                <input type="text"
+                       class="form-control"
+                       value="{{ blog.title }}"
+                       id="title"
+                       aria-describedby="Blog title"
+                       name="title">
             </div>
             <div class="mb-3">
                 <label for="blog_text" class="form-label">Share your story</label>
-                <textarea class="form-control" id="blog_text" name="blog_text"> </textarea>
+                <textarea class="form-control" id="blog_text" name="blog_text">{{ blog.blog_text }} </textarea>
             </div>
 
             <button type="submit" class="btn btn-primary">Submit</button>
