@@ -248,10 +248,10 @@ def add_blog():
 
 
 @app.route('/edit_blog/<blog_id>', methods=['GET', 'POST'])
-def edit_blog(blod_id):
+def edit_blog(blog_id):
 
-    blog = mongo.db.blog.find_one(
-        {"_id": ObjectId(blod_id)})
+    single_blog = mongo.db.blog.find_one(
+        {"_id": ObjectId(blog_id)})
 
     if "user" in session:
         blog_categories = mongo.db.categories.find()
@@ -265,13 +265,13 @@ def edit_blog(blod_id):
                     'blog_text': request.form.get('blog_text'),
                     'created_by': session['user']
                 }
-                mongo.db.blog.insert_one(submit)
-                flash("Record {} created".format(submit['title']))
-                return render_template('blog.html', blog_list=blog,
-                                       category_list=category_list)
+                mongo.db.blog.update_one({"_id": ObjectId(blog_id)},
+                                         {"$set": submit})
+                flash("Record {} updated".format(submit['title']))
+                return redirect(url_for('profile'))
     else:
         return redirect(url_for("login"))
-    return render_template('edit_blog.html', categories=blog_categories)
+    return render_template('edit_blog.html', categories=blog_categories, blog=single_blog)
 
 
 @app.route('/delete_blog/<blog_id>')

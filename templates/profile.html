@@ -41,7 +41,7 @@
                         </div>
                         <div class="row">
                             <div class="col">
-                                <span class="btn btn-sm btn-outline-info" id="edit_{{ blog._id }}">Edit</span>
+                                <a href="{{ url_for('edit_blog', blog_id = blog._id) }}" class="btn btn-sm btn-outline-info" id="edit_{{ blog._id }}">Edit</a>
                                 <a href="#"
                                    id="{{ blog._id }}"
                                    class="btn btn-sm btn-outline-danger"
