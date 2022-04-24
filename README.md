@@ -41,7 +41,12 @@ The home page features an animation of moving buttons revolving around a central
 ![Image of Add Category screen](docs/readmeimages/add-category.jpg)
 ![Image of Edit Category screen](docs/readmeimages/edit-category.jpg)
 
+### Blog maintenance from Profile Page  
 
+- Each user can maintain their own blogs from their profile page.  
+
+![Image of the Profile page](docs/readmeimages/ProfilePage.jpg)
+![Image of the delete blog option](docs/readmeimages/delete-post.jpg)
 ---
 
 ## Wireframes
