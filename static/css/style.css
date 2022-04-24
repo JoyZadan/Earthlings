@@ -38,6 +38,10 @@ body {
 
 }
 
+body {
+    padding-top: 100px;
+}
+
 nav {
     background-color: #C0CF50 !important;
     padding: 1.2em 1em !important;
