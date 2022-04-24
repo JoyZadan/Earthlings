@@ -113,6 +113,24 @@ The home page features an animation of moving buttons revolving around a central
 
 ---
 
+## Testing
+
+The following testing was completed.
+- Categories Page
+- - Confirmed that List Categories page appeared on selecting Categories in the Navigation Menu
+- - Confirmed that it displayed the data from the categories table in the database.
+- - Confirmed that clicking Add button brought me to the 'Add Category' page.
+- - Confirmed that leaving the Name field blank was not allowed.
+- - Confirmed that the cancel button from the Add page returned me to the List Categories page.
+- - Confirmed that clicking the Save button added the new category successfully and returned me to the List Category page.
+- - Confirmed that clicking the Edit icon brought me to the Edit Category page. 
+- - Confirmed that the correct details of the Category were displayed on the Edit Category page. 
+- - Confirmed that clicking the Save icon on the Edit Category page saved the change and returned me to the List Category page were the new details were displayed correctly.
+- - Confirmed that the cancel button from the Edit page returned me to the List Categories page.
+- - Confirmed that clicking the Delete icon on the List Categories page for a category which was referenced by blogs was not deleted and a message was displayed explaining.
+- - Confirmed that clicking the Delete icon on the List Categories page for a category which was not referenced by blogs was deleted and I was returned to the List Categories page.
+
+
 ## Credits
 
 * Content
