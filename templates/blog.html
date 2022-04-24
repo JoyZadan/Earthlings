@@ -56,8 +56,15 @@
             </li>
         {% endfor %}
     </ul>
-        {% else %}
-            <p>No records found.</p>
-        {% endif %}
-    <a href="{{ url_for('add_blog') }}" class="btn btn-secondary">Share your ideas</a>
+    {% else %}
+        <p>No records found.</p>
+    {% endif %}
+
+    {% if session.user %}
+        <a href="{{ url_for('add_blog') }}" class="btn btn-secondary">Share your ideas</a>
+    {% else %}
+        <h5>Want to join the discussion?</h5>
+        <p>Please <a href="{{ url_for('login') }}">log in</a> to the site or <a href="{{ url_for('register') }}">register</a> if you wish to submit a new blog post.</p>
+    {% endif %}
+
 {% endblock %}

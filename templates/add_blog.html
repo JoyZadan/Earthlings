@@ -5,7 +5,7 @@
     <h1>People thoughts</h1>
 
     <div class="blog-container">
-        <form method="post" action="{{ url_for('add_blog') }}">
+        <form method="POST" action="{{ url_for('add_blog') }}">
             <div class="mb-3">
                 <select class="form-select" multiple aria-label="select multiple categories" size="3" name="categories_list">
                     <option selected disabled>Select categories</option>
