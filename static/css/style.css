@@ -13,7 +13,9 @@ p {
 body {
     background: rgb(177,225,145);
     background: radial-gradient(circle, rgba(177,225,145,1) 0%, rgba(64,124,55,1) 100%);
+    
 }
+
 
 
 .hide {
