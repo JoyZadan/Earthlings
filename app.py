@@ -266,8 +266,21 @@ def delete_category(category_id):
     """
     Delete a category
     """
-    mongo.db.categories.delete_one({'_id': ObjectId(category_id)})
-    return redirect(url_for('categories'))
+    if "user" in session:
+        blog_list = list(mongo.db.blog.find(
+                {"categories": {"$all": [category_id, ]}}
+        ))
+        if not blog_list:
+            category = mongo.db.categories.find_one(
+            {'_id': ObjectId(category_id)})
+            mongo.db.categories.delete_one({'_id': ObjectId(category_id)})
+            flash('Successfully deleted {}'.format(category["name"]))
+            return redirect(url_for('categories'))
+        else:
+            flash('This category is referred to by blogs. It cannot be deleted until the associated blogs are removed first.')
+            return redirect(url_for('categories'))
+    else:
+        return render_template('404.html'), 404
 
 
 @app.route('/blog')
