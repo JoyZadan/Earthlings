@@ -2,10 +2,16 @@
 
 {% block calendar %}
 <!-- eco planner calendar -->
-<section id='cal' class='my-5 py-5'>
-    <div class="container-lg my-5 py-5">
+<section id='cal' class='my-1 py-1'>
+    <div class="container-lg my-1 py-1">
         <div class="text-center calendar-header my-5">
-            <h1>Monthly Eco Planner & Tips</h1>
+            <h1>We are the Earthlings and our mission is to save planet Earth.</h1>
+            <p class="h3">After all, a good planet is hard to find.</p>
+            <a href="{{ url_for('register') }}" class="btn btn-success mt-3">Join Us</a>
+        </div>
+        <div class="text-center my-3">
+            <p class="h4">Here are some suggestions of what you can do all year round.</p>
+            <h2 class="my-2 mt-1">Monthly Eco Planner & Tips</h2>
         </div>
      </div>
 
@@ -280,6 +286,13 @@
             </div>
         </div>
     </div>
+
+    <!-- send suggestions area -->
+    <div class="text-center my-3">
+        <p class="h4">Have a suggestion of your own to add?</p>
+        <a href="{{ url_for('register') }}" class="btn btn-success mt-3">Join Us</a>
+    </div>
+
 </section>
 
 
