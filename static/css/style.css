@@ -34,6 +34,8 @@ body {
 .dropdown-item:hover {
     background-color: #C0CF50 !important;
     text-decoration: underline !important;
+    color: #000 !important;
+
 }
 
 nav {
