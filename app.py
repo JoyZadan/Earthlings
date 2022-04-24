@@ -8,7 +8,6 @@ from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
 
-
 if os.path.exists("env.py"):
     import env
 
@@ -130,7 +129,8 @@ def profile():
         blog_list = mongo.db.blog.find(
             {"created_by": {'$eq': session['user']}})
         category_list = list(mongo.db.categories.find())
-        return render_template("profile.html", blog_list=blog_list, category_list=category_list)
+        return render_template("profile.html", blog_list=blog_list,
+                               category_list=category_list)
     return redirect(url_for("index"))
 
 
@@ -169,26 +169,27 @@ def add_category():
     else:
         return render_template('404.html'), 404
 
+
 @app.route("/<category_id>/edit_category", methods=["GET", "POST"])
 def edit_category(category_id):
-    ''' 
+    """
     Edit a category
-    '''
+    """
     if "user" in session:
-        if request.method =="POST":
+        if request.method == "POST":
             category_name = request.form.get("category_name")
             category_description = request.form.get("category_description")
             category = {
-                "name" : category_name,
-                "description" : category_description
+                "name": category_name,
+                "description": category_description
             }
             mongo.db.categories.update_one({'_id': ObjectId(category_id)},
-                                          {'$set': category})
+                                           {'$set': category})
             return redirect(url_for("categories"))
         category = mongo.db.categories.find_one(
             {'_id': ObjectId(category_id)})
-        return render_template("edit_category.html", 
-                                category=category)
+        return render_template("edit_category.html",
+                               category=category)
     else:
         return render_template('404.html'), 404
 
@@ -240,10 +241,57 @@ def add_blog():
                 mongo.db.blog.insert_one(submit)
                 flash("Record {} created".format(submit['title']))
                 return render_template('blog.html', blog_list=blog_list,
-                           category_list=category_list)
+                                       category_list=category_list)
     else:
         return redirect(url_for("login"))
     return render_template('add_blog.html', categories=blog_categories)
+
+
+@app.route('/edit_blog/<blog_id>', methods=['GET', 'POST'])
+def edit_blog(blod_id):
+
+    blog = mongo.db.blog.find_one(
+        {"_id": ObjectId(blod_id)})
+
+    if "user" in session:
+        blog_categories = mongo.db.categories.find()
+
+        category_list = list(mongo.db.categories.find())
+        if request.method == 'POST':
+            if "user" in session:
+                submit = {
+                    'categories': request.form.getlist('categories_list'),
+                    'title': request.form.get('title'),
+                    'blog_text': request.form.get('blog_text'),
+                    'created_by': session['user']
+                }
+                mongo.db.blog.insert_one(submit)
+                flash("Record {} created".format(submit['title']))
+                return render_template('blog.html', blog_list=blog,
+                                       category_list=category_list)
+    else:
+        return redirect(url_for("login"))
+    return render_template('edit_blog.html', categories=blog_categories)
+
+
+@app.route('/delete_blog/<blog_id>')
+def delete_blog(blog_id):
+    if "user" in session:
+        record = mongo.db.blog.find_one(
+            {"_id": ObjectId(blog_id)}
+        )
+        if record['created_by'] == session['user']:
+            mongo.db.blog.delete_many(
+                {"_id": ObjectId(blog_id)}
+            )
+            flash('Successfully deleted {}'.format(record["title"]))
+            return redirect(url_for('profile'))
+        else:
+            flash('You only allowed to remove your own records')
+            return redirect(url_for('profile'))
+    else:
+        flash("You need to be logged in to perform this action")
+        return redirect(url_for('login'))
 
 
 if __name__ == "__main__":
