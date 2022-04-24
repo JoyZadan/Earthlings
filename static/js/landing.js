@@ -41,16 +41,13 @@ const heroOptions = {
 const heroObserver = new IntersectionObserver((entries, heroObserver) => {
     entries.forEach(entry => {
         if(!entry.isIntersecting){
-            if(window.innerWidth < 1200){
-                console.log('hello')
-            }else{
                 nav.style.opacity = '1'
                 nav.classList.add('fixed-top')
 
             }
             
             
-        } else {
+         else {
             // nav.classList.remove('fixed-top')
             nav.style.opacity = '0'
             
@@ -66,5 +63,7 @@ const appearOptions = {
     threshold: 0,
     rootMargin: "0px 0px -200px 0px"
 }
+
+
 
 document.onload(window.scrollTo(0, 90))

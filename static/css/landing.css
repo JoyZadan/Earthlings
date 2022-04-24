@@ -3,7 +3,9 @@ picture {
   max-width: 50%;
   display: block;
 }
-
+.small-obj{
+    display: none;
+  }
 @media (prefers-reduced-motion: reduce) {
   html:focus-within {
     scroll-behavior: auto;
@@ -243,7 +245,6 @@ nav {
   margin: 0 auto !important;
   position: relative;
   top: 15rem;
-  
 }
 
 
@@ -261,4 +262,27 @@ nav {
     0% {
       color: var(--main-dark);
     }
+  }
+
+
+  /* media queries  */
+
+  @media screen and (max-width: 800px) {
+    .orbit-wrapper {
+
+    min-height: 100vh;
+    place-content: center;
+    overflow: hidden;
+  }
+  #orbit-ul {
+    display: none;
+  }
+  .small-obj{
+    display: initial;
+  }
+  .landing-greeting {
+    position: relative;
+    top: 5em;
+  }
+
   }
