@@ -30,6 +30,23 @@ Above is what a user sees from the navbar when logged in to the site. From this,
 
 The home page features an animation of moving buttons revolving around a central, stationary image. Clicking any of these buttons brings up a modal containing information on its theme, and good advice for site users to lower their impact on the planet by making changes relating to this theme.
 
+### Categories maintenance (CRUD suite)
+
+- The available list of categories to add to the blogs can be maintained from a menu option on the nav manu once signed in.
+- The option is not available to users that are not logged in.
+- From the List Categories page categories can be added, edited and deleted.
+- They can only be deleted if no blogs are referring to them.
+
+![Image of the list categories screen](docs/readmeimages/list-categories.jpg)
+![Image of Add Category screen](docs/readmeimages/add-category.jpg)
+![Image of Edit Category screen](docs/readmeimages/edit-category.jpg)
+
+### Blog maintenance from Profile Page  
+
+- Each user can maintain their own blogs from their profile page.  
+
+![Image of the Profile page](docs/readmeimages/ProfilePage.jpg)
+![Image of the delete blog option](docs/readmeimages/delete-post.jpg)
 ---
 
 ## Wireframes
@@ -95,6 +112,24 @@ The home page features an animation of moving buttons revolving around a central
     * Online-Convert was used to convert the png images to webp.
 
 ---
+
+## Testing
+
+The following testing was completed.
+- Categories Page
+- - Confirmed that List Categories page appeared on selecting Categories in the Navigation Menu
+- - Confirmed that it displayed the data from the categories table in the database.
+- - Confirmed that clicking Add button brought me to the 'Add Category' page.
+- - Confirmed that leaving the Name field blank was not allowed.
+- - Confirmed that the cancel button from the Add page returned me to the List Categories page.
+- - Confirmed that clicking the Save button added the new category successfully and returned me to the List Category page.
+- - Confirmed that clicking the Edit icon brought me to the Edit Category page. 
+- - Confirmed that the correct details of the Category were displayed on the Edit Category page. 
+- - Confirmed that clicking the Save icon on the Edit Category page saved the change and returned me to the List Category page were the new details were displayed correctly.
+- - Confirmed that the cancel button from the Edit page returned me to the List Categories page.
+- - Confirmed that clicking the Delete icon on the List Categories page for a category which was referenced by blogs was not deleted and a message was displayed explaining.
+- - Confirmed that clicking the Delete icon on the List Categories page for a category which was not referenced by blogs was deleted and I was returned to the List Categories page.
+
 
 ## Credits
 
