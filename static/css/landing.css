@@ -211,6 +211,8 @@ picture {
   width: 90%; /* Could be more or less, depending on screen size */
   max-width: 600px;
   letter-spacing: .1em;
+  max-height: 600px;
+  overflow: scroll;
 }
 
 /* The Close Button */
@@ -310,4 +312,9 @@ overflow: hidden;
   
 }
 
+.modal-content {
+  max-height: calc(100vh/2)
+}
+
   }
+
