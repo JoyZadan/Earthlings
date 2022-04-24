@@ -1,7 +1,10 @@
 {% extends "base.html" %}
 
 {% block content %}
+<div class="text-center my-5">
     <h1>List Categories</h1>
+</div>
+<div class="row my-5">
     {% if categories %}
         <table class="table table-hover table-responsive">
             <thead>
@@ -15,7 +18,7 @@
             <tr>
                 <td>{{category.name}}</td>
                 <td>{{category.description}}</td>
-                <td>
+                <td class="symbols">
                     <a href="{{ url_for('edit_category', category_id=category._id) }}" class="btn btn-outline-success" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit">                      
                         <i class="fas fa-edit"></i></a>
                     <a href="{{ url_for('delete_category', category_id=category._id) }}" class="btn btn-outline-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete">
@@ -32,6 +35,7 @@
     {% else %}
         <p>No categories found.</p>
     {% endif %}
-    <a href="{{ url_for('add_category') }}" class="btn btn-secondary">Add category</a>
+</div>
 
+<a href="{{ url_for('add_category') }}" class="btn btn-success">Add category</a>
 {% endblock %}
