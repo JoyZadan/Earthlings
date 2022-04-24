@@ -1,7 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100&family=Raleway:wght@300&display=swap');
+
+* {
+    font-family: 'Raleway', sans-serif;
+
+}
+
+p {
+    font-family: 'Raleway', sans-serif;
+
+}
+
 body {
     background: rgb(177,225,145);
     background: radial-gradient(circle, rgba(177,225,145,1) 0%, rgba(64,124,55,1) 100%);
+
 }
+
 
 
 .hide {
@@ -87,14 +101,19 @@ nav {
     border-radius: 10px;
 }
 
-
+.card-title {
+    color: #198754;
+    font-weight: 600;
+}
 
 #mc_embed_signup{
     background:#fff;
     clear:left;
-    font:14px Helvetica,Arial,sans-serif; 
-    width:600px; margin: 2em auto;
+    font:14px Helvetica,Arial,sans-serif;
+    width: 90%;
+    max-width:600px; margin: 2em auto;
     border-radius: 10px;
 }
+
 /* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
     We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */

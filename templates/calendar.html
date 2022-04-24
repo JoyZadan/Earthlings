@@ -2,13 +2,18 @@
 
 {% block calendar %}
 <!-- eco planner calendar -->
-<section id='cal' class='my-5 py-5'>
-    <div class="container-lg my-5 py-5">
+<section id='cal' class='my-1 py-5'>
+    <div class="container-lg my-1 py-1">
         <div class="text-center calendar-header my-5">
-            <h1>Monthly Eco Planner & Tips</h1>
+            <h1>We are the Earthlings and our mission is to save planet Earth.</h1>
+            <p class="h3">After all, a good planet is hard to find.</p>
+            <a href="{{ url_for('register') }}" class="btn btn-success mt-3">Join Us</a>
         </div>
-     </div>
-
+        <div class="text-center my-3">
+            <p class="h4">Here are some suggestions of what you can do all year round.</p>
+            <h2 class="my-2 mt-1">Monthly Eco Planner & Tips</h2>
+        </div>
+    </div>
     <div class="row row-cols-1 row-cols-lg-3 row-cols-md-2 justify-content-lg-between g-2 mx-1 px-2">
         <!-- start of cards -->
         <div class="card border-success py-y mb-3 mt-3" style="max-width: 540px;">
@@ -30,12 +35,10 @@
                         <p class="card-text">
                             Service your boiler regularly.
                         </p>
-
                     </div>
                 </div>
             </div>
         </div>
-
         <div class="card border-success py-y mb-3 mt-3" style="max-width: 540px;">
             <div class="row g-2">
                 <h2 class="card-header">February</h2>
@@ -56,7 +59,6 @@
                 </div>
             </div>
         </div>
-
         <div class="card border-success py-y mb-3 mt-3 justify-content-between" style="max-width: 540px;">
             <div class="row g-2">
                 <h2 class="card-header">March</h2>
@@ -77,7 +79,6 @@
                 </div>
             </div>
         </div>
-
         <div class="card border-success py-y mb-3 mt-3 justify-content-between" style="max-width: 540px;">
             <div class="row g-2">
                 <h2 class="card-header">April</h2>
@@ -101,7 +102,6 @@
                 </div>
             </div>
         </div>
-
         <div class="card border-success py-y mb-3 mt-3 justify-content-between" style="max-width: 540px;">
             <div class="row g-2">
                 <h2 class="card-header">May</h2>
@@ -125,7 +125,6 @@
                 </div>
             </div>
         </div>
-
         <div class="card border-success py-y mb-3 mt-3 justify-content-between" style="max-width: 540px;">
             <div class="row g-2">
                 <h2 class="card-header">June</h2>
@@ -155,7 +154,6 @@
                 </div>
             </div>
         </div>
-
         <div class="card border-success py-y mb-3 mt-3 justify-content-between" style="max-width: 540px;">
             <div class="row g-2">
                 <h2 class="card-header">July</h2>
@@ -180,7 +178,6 @@
                 </div>
             </div>
         </div>
-
         <div class="card border-success py-y mb-3 mt-3 justify-content-between" style="max-width: 540px;">
             <div class="row g-2">
                 <h2 class="card-header">August</h2>
@@ -207,7 +204,6 @@
                 </div>
             </div>
         </div>
-
         <div class="card border-success py-y mb-3 mt-3 justify-content-between" style="max-width: 540px;">
             <div class="row g-2">
                 <h2 class="card-header">September</h2>
@@ -231,55 +227,88 @@
                 </div>
             </div>
         </div>
-
         <div class="card border-success py-y mb-3 mt-3 justify-content-between" style="max-width: 540px;">
             <div class="row g-2">
-                <h3 class="card-header">October</h3>
+                <h2 class="card-header">October</h2>
                 <div class="col-md-4">
-                    <img src="{{url_for('static', filename='assets/shop-sustainably.webp')}}" class="img-fluid rounded-start" alt="...">
+                    <img src="{{url_for('static', filename='assets/green-computing.webp')}}" class="img-fluid rounded-start"
+                    alt="green computing illustration">
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">
-                        <h5 class="card-title">Join tree planting activities </h5>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        <h3 class="card-title h5">Consider Green Computing</h3>
+                        <p class="card-text">
+                            Delete emails, unsubscribe from newsletters you don't actually read and clear your junk folder.
+                        </p>
+                        <p class="card-text">
+                            Switch off your computers and other devices when not in use.
+                        </p>
+                        <p class="card-text">
+                            Repurpose existing equipment or properly dispose of, or recycle, unwanted electronic equipment.
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
-
         <div class="card border-success py-y mb-3 mt-3 justify-content-between" style="max-width: 540px;">
             <div class="row g-2">
-                <h3 class="card-header">November</h3>
+                <h2 class="card-header">November</h2>
                 <div class="col-md-4">
-                    <img src="{{url_for('static', filename='assets/shop-sustainably.webp')}}" class="img-fluid rounded-start" alt="...">
+                    <img src="{{url_for('static', filename='assets/car-free.webp')}}" class="img-fluid rounded-start"
+                    alt="illustration of world car free day">
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">
-                        <h5 class="card-title">Join tree planting activities </h5>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        <h3 class="card-title h5">Ditch the car month</h3>
+                        <p class="card-text">
+                            Consider going car-free for a day in a week.
+                        </p>
+                        <p class="card-text">
+                            Use public transport.
+                        </p>
+                        <p class="card-text">
+                            Plan ahead to save time and unnecessary stress.
+                        </p>
+                        <p class="card-text">
+                            Train with Bikeability to learn to cycle safely and confidently on the road.
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
-
         <div class="card border-success py-y mb-3 mt-3 justify-content-between" style="max-width: 540px;">
             <div class="row g-2">
-                <h3 class="card-header">December</h3>
+                <h2 class="card-header">December</h2>
                 <div class="col-md-4">
-                    <img src="{{url_for('static', filename='assets/shop-sustainably.webp')}}" class="img-fluid rounded-start" alt="...">
+                    <img src="{{url_for('static', filename='assets/green-christmas.webp')}}" class="img-fluid rounded-start"
+                    alt="illustration of giving eco-friendly christmas gifts">
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">
-                        <h5 class="card-title">Join tree planting activities </h5>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        <h3 class="card-title h5">Have a Merry and Green Christmas</h3>
+                        <p class="card-text">
+                            Wrap gifts with recycled paper or fabric.
+                        </p>
+                        <p class="card-text">
+                            Send forest-friendly Christmas cards.
+                        </p>
+                        <p class="card-text">
+                            Switch to LED Christmas lights.
+                        </p>
+                        <p class="card-text">
+                            Buy eco-friendly crackers.
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <!-- send suggestions area -->
+    <div class="text-center my-3">
+        <p class="h4">Have a suggestion of your own to add?</p>
+        <a href="{{ url_for('register') }}" class="btn btn-success mt-3">Join Us</a>
+    </div>
+
 </section>
 
 
