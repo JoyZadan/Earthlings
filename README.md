@@ -44,9 +44,7 @@ The home page features an animation of moving buttons revolving around a central
 
 ---
 
-## Credits
-
-### Technologies used
+## Technologies used
 
 * Languages:
     * [HTML5](https://en.wikipedia.org/wiki/HTML5) was used for the content and structure of the site.
@@ -73,10 +71,13 @@ The home page features an animation of moving buttons revolving around a central
     * Jinja is a templating engine for Python, used to write Flask and other templating services.
 
 * [Balsamiq](https://balsamiq.com/)
-    * Balsamiq was used to create the wireframes for this project. 
+    * Balsamiq was used to create the wireframes for this project.
 
 * [Git](https://git-scm.com/)
     * Git was used for version control and saving work in the repository, using the GitPod extension in Google Chrome to commit to GitHub.
+
+* [Bootstrap 5](https://getbootstrap.com/)
+    * Bootstrap is one of the most popular front-end open source toolkit and was used for ease of styling the Earthlings app.
 
 * [Chrome](https://www.google.com/intl/en_uk/chrome/)
     * This project was created in the Google Chrome browser, and as such Chrome was used as the default testing browser.
@@ -89,3 +90,42 @@ The home page features an animation of moving buttons revolving around a central
 
 * [GitHub](https://github.com/)
     * GitHub is where we host our site.
+
+* [Online-Convert](https://www.online-convert.com/)
+    * Online-Convert was used to convert the png images to webp.
+
+---
+
+## Credits
+
+* Content
+    * Tips and suggestions used for the Monthly Eco Planner were collated from:
+        * [Sustainability Mag](https://sustainabilitymag.com/top10/top-10-causes-global-warming)
+        * [The Big Green K](https://thebiggreenk.com/blog/10-things-you-can-do-to-positively-impact-the-environment/)
+        * [Collect My Cothes](https://collectmyclothes.co.uk/how-donating-clothes-helps-the-environment/)
+        * [Sustrans.Org](https://www.sustrans.org.uk/our-blog/get-active/2020/in-your-community/five-tips-for-going-car-free)
+        * [The Good Planet](https://thegoodplanet.org/2020/06/02/how-you-can-save-our-planet-by-deleting-emails)
+        * [Country Living](https://www.countryliving.com/uk/homes-interiors/interiors/g25329535/eco-friendly-christmas-ideas-green-christmas/)
+        * [Readers Digest](https://www.readersdigest.co.uk/lifestyle/home-garden/how-to-shop-sustainably)
+        * [Greenpeace](https://www.greenpeace.org.uk/news/9-ways-reduce-plastic-use/)
+        * [Panda.Org](https://wwf.panda.org/act/live_green/travel/on_vacation/)
+        * [Volcanoes Safaris](https://volcanoessafaris.com/press/7-ways-to-make-your-travel-more-sustainable/)
+        * [The Royal Horticultural Society](https://www.rhs.org.uk/gardening-for-the-environment/planet-friendly-gardening-tips)
+        * [Lancaster University](https://www.lancaster.ac.uk/data-science-of-the-natural-environment/blogs/green-computing-a-contribution-to-save-the-environment)
+
+* Media
+    * [Adobe Stock](https://stock.adobe.com/uk/)
+        * Some illustrations used for the Earthlings were licensed from Adobe.
+
+---
+
+## Acknowledgements
+
+* Many thanks to the Code Institute Hackathon team for organizing these events that enables participants to collaborate with fellow student developers and alumni, experience sprint development and have fun along the way!
+
+* We are Team Earthlings:
+    * [Alex](https://github.com/alexandergrib)
+    * [Daniel](https://github.com/xiaoniuniu89)
+    * [Evelyn](https://github.com/evelynfoy)
+    * [James](https://github.com/James-VT)
+    * [Joy](https://github.com/JoyZadan)
