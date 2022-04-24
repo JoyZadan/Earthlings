@@ -3,7 +3,9 @@ picture {
   max-width: 50%;
   display: block;
 }
-
+.small-obj{
+    display: none;
+  }
 @media (prefers-reduced-motion: reduce) {
   html:focus-within {
     scroll-behavior: auto;
@@ -127,7 +129,7 @@ picture {
   transition: opacity 500ms;
   opacity: 0;
   position: relative;
-  top: 9px
+  top: 8px;
 }
 .orbit li:hover > p {
   opacity: 1;
@@ -204,7 +206,8 @@ picture {
   margin: 15% auto; /* 15% from the top and centered */
   padding: 20px;
   border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
+  width: 90%; /* Could be more or less, depending on screen size */
+  max-width: 600px;
 }
 
 /* The Close Button */
@@ -233,6 +236,7 @@ picture {
 
 nav {
   transition:  250ms ease-in-out;
+  opacity: 0;
 }
 
 
@@ -241,7 +245,6 @@ nav {
   margin: 0 auto !important;
   position: relative;
   top: 15rem;
-  
 }
 
 
@@ -259,4 +262,27 @@ nav {
     0% {
       color: var(--main-dark);
     }
+  }
+
+
+  /* media queries  */
+
+  @media screen and (max-width: 800px) {
+    .orbit-wrapper {
+
+    min-height: 100vh;
+    place-content: center;
+    overflow: hidden;
+  }
+  #orbit-ul {
+    display: none;
+  }
+  .small-obj{
+    display: initial;
+  }
+  .landing-greeting {
+    position: relative;
+    top: 5em;
+  }
+
   }
