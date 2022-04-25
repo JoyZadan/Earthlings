@@ -3,14 +3,7 @@ picture {
   max-width: 50%;
   display: block;
 }
-/* .small-obj{
-    display: none;
-  } */
 
-   /* .landing-greeting {
-    position: relative;
-    top: 2.8em;
-  } */
 @media (prefers-reduced-motion: reduce) {
   html:focus-within {
     scroll-behavior: auto;
@@ -246,7 +239,6 @@ picture {
 
 nav {
   transition:  250ms ease-in-out;
-  /* opacity: 0; */
 }
 
 
@@ -295,9 +287,7 @@ overflow: hidden;
   #orbit-ul {
     display: none;
   }
-  /* .small-obj{
-    display: initial;
-  } */
+  
   .landing-greeting {
     padding: 1em 0 3em;
   }
@@ -309,6 +299,3 @@ overflow: hidden;
 .modal-content {
   max-height: calc(100vh/2)
 }
-
-  }
-

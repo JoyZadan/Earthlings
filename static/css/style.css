@@ -16,8 +16,6 @@ body {
 
 }
 
-
-
 .hide {
     display: none;
 }
@@ -128,3 +126,9 @@ nav {
  .symbols {
     border: none; padding-left: 1rem;
  }
+
+/*-----------------Add blog style */
+
+.add-blog-button-style {
+    margin: 10px;
+}
