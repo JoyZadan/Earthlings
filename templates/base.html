@@ -45,21 +45,19 @@
           integrity="sha512-xA6Hp6oezhjd6LiLZynuukm80f8BoZ3OpcEYaqKoCV3HKQDrYjDE1Gu8ocxgxoXmwmSzM4iqPvCsOkQNiu41GA=="
           crossorigin="anonymous" type="text/css">
 
-    <!-- Animate stylesheet -->
-    <!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"-->
-    <!--          type="text/css">-->
+
 
     <!-- Local stylesheet -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
 
     <!-- Favicon -->
-    {#    <link rel="apple-touch-icon" sizes="180x180"#}
-    {#          href="{{ url_for('static', filename='img/favicon/apple-touch-icon.png') }}">#}
-    {#    <link rel="icon" type="image/png" sizes="32x32"#}
-    {#          href="{{ url_for('static', filename='img/favicon/favicon-32x32.png') }}">#}
-    {#    <link rel="icon" type="image/png" sizes="16x16"#}
-    {#          href="{{ url_for('static', filename='img/favicon/favicon-16x16.png') }}">#}
-    {#    <link rel="manifest" href="{{ url_for('static', filename='img/favicon/site.webmanifest') }}">#}
+        <link rel="apple-touch-icon" sizes="180x180"
+              href="{{ url_for('static', filename='assets/favicon/apple-touch-icon.png') }}">
+        <link rel="icon" type="image/png" sizes="32x32"
+              href="{{ url_for('static', filename='assets/favicon/favicon-32x32.png') }}">
+        <link rel="icon" type="image/png" sizes="16x16"
+              href="{{ url_for('static', filename='assets/favicon/favicon-16x16.png') }}">
+        <link rel="manifest" href="{{ url_for('static', filename='assets/favicon/site.webmanifest') }}">
 
     {% block css %}
     {% endblock %}
@@ -123,8 +121,6 @@
 </div>
 
 
-
-
 <footer class="mt-auto pt-5 text-center text-small">
         <p class="mb-1">&copy; 2022 Earthlings</p>
         <ul class="list-inline">
@@ -133,7 +129,6 @@
           <li class="list-inline-item"><a href="#">Support</a></li>
         </ul>
 </footer>
-
 
 
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"
