@@ -26,7 +26,7 @@ This site is built to serve as a go-to place for tips, ideas and information on 
 ### A returning user to the site might want to:
     6. Delete their blog posts.
     7. Edit their blog posts.
-    8. Create a new category
+    8. Create a new category.
     9. Read a new month's tips on how to help the planet.
     10. Explore further topics in the landing page animation.
 
@@ -205,6 +205,39 @@ The following testing was completed:
 
 ---
 
+## Testing against user stories
+
+In this section we have tested each user story against the features of the site to ensure that every one is met.
+
+### A first time visitor to the site might want to:
+
+| User story | How was this achieved? | Evidence of user story having been met |
+| --- | --- | --- |
+| Acquire information pertaining to the environment, their impact upon it, how to minimise their impact and help the planet from the landing page animation. | Users are presented with options of tips based upon theme when first landing on the page. Further to this, the calendar below contians a different idea for each month of the year. Finally, user's can visit the blog to share and acquire information. | [Home page animation](docs/readmeimages/homepageanimation.png), [Calendar](docs/readmeimages/calendar.png), [Blog](docs/readmeimages/blog.png) |
+| Read tips on how to help the planet in the calendar. | Users are provided with a calendar, which provides a different piece of advice for every month. | [Calendar on lower section of home page](docs/readmeimages/calendar.png) |
+| Register an account on the site. | User can register an account on the site. | [Registration form page](docs/readmeimages/registrationform.png) |
+| Using their account, make blog posts. | Logged-in users can create blog posts via the add_blog page form. | [Add blog form](docs/readmeimages/addblog.png) |
+| Subscribe to receive weekly planet-saving tips using their email address. | Users can register via the mailchimp form to recieve tips weekly in a newsletter-style email. | [Subscription form for weekly tips](docs/readmeimages/subscriptionform.png) |
+
+### A returning visitor to the site might want to:
+| User story | How was this achieved? | Evidence of user story having been met |
+| --- | --- | --- |
+| Delete their blog posts. | Blog posts can be deleted by the user that created them. | [Blog form delete option from profile page](docs/readmeimages/ProfilePage.jpg) |
+| Edit their blog posts | Blog posts can be edited by the user that created them. | [Blog form edit option from pofile page](docs/readmeimages/ProfilePage.jpg) |
+| Create a new category | Users can create a new category for blog posts with which they and other users can tag their posts via the add_category form. | [Add category form for a signed-in user](docs/readmeimages/add-category.jpg) |
+| Read a new month's tips on how to help the planet. | The calendar remains static year-round, allowing users to look ahead and revisit the calendar at any time to learn a month's tips. | [Calendar on lower section of home page](docs/readmeimages/calendar.png) |
+| Explore further topics in the landing page animation. | The landing page animation remains "static" (not in a literal sense) and can be visited and re-visited for learning on a different subject. | [Home page animation](docs/readmeimages/homepageanimation.png) |
+
+### A site owner might want to:
+| User story | How was this achieved? | Evidence of user story having been met |
+| --- | --- | --- |
+| Facilitate the exchange of information via the hosting of a blog. | The site hosts a blog for all logged-in users to contribute to, and all users to read from. | [Blog](docs/readmeimages/blog.png) |
+| Interact with site users via the blog. | Blog posts can be made by any signed-in user, including a site owner. | [Add blog form](docs/readmeimages/addblog.png) |
+| Send users weekly tips via the email sign-up form. | Users can register via the mailchimp form to recieve tips weekly in a newsletter-style email. | [Subscription form for weekly tips](docs/readmeimages/subscriptionform.png) |
+| Invite users to register with the site. | Users are invited to register via several links on the site, and when viewing blog posts, if not logged in, the options invite them to register or log in. | [Registration form page](docs/readmeimages/registrationform.png) |
+
+---
+
 ## Validators
 The site's pages were run through a number of validators, as was its code, to ensure adherence to best practice. Below is the evidence and results of this.
 
@@ -254,6 +287,12 @@ It is worth noting that landing.js handles the homepage landing animation which 
 script.js flags an error abot the incompatibility of linting options values. With extra time, this would be an issue into which to dive deeper, but the code works, so the error - as there is only one - has been left alone for now.
 
 ![Results of script.js jshint](docs/validators/jshintscriptjs.png)
+
+### PEP8
+
+PEP8 is used to validate Python code according to certain rules of best practice and readability. One flag exists, which is that a line containing an important string message is too long.
+
+![Image of PEP8 validator result](docs/validators/pep8apppy.png)
 
 ---
 
