@@ -2,7 +2,7 @@
 
 {% block content %}
 
-    <h1>People thoughts</h1>
+    <h1>People's thoughts</h1>
 
     <div class="blog-container">
         <form method="POST" action="{{ url_for('add_blog') }}">
@@ -17,6 +17,7 @@
                         <option value="-1">No categories added</option>
                     {% endif %}
                 </select>
+                <p>You can hold Ctrl and click to select more than one category.</p>
             </div>
             <div class="mb-3">
                 <label for="title" class="form-label">Title</label>
@@ -27,9 +28,9 @@
                 <textarea class="form-control" id="blog_text" name="blog_text"> </textarea>
             </div>
 
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary add-blog-button-style">Submit</button>
         </form>
     </div>
 
-    <a href="{{ url_for('blog') }}" class="btn btn-secondary">Return to Blog</a>
+    <a href="{{ url_for('blog') }}" class="btn btn-secondary add-blog-button-style">Return to Blog</a>
 {% endblock %}

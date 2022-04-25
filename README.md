@@ -1,10 +1,40 @@
 # Earthling
 
+![Mock-ups of the site](docs/readmeimages/earthlings-multipages.png)
+
 # Project overview
 
 Greetings! We are the Earthlings, and this is our project to help save the only planet we have. As well as featuring a calendar with ideas of what you can do to help the earth each month, our site features a blog with the ability for users to log in to the site to contribute ideas, tips, and conversations that help keep the world turning. Users might visit this site for several reasons: to learn this month's promoted tip; to share ideas, thoughts and inspirations with other users; and to discuss these things. As such, the site features the ability to create an account, log in and out, and post from an account; the site also features authentication to securely facilitate this.
 
+The live site for Earthlings can be found [here](https://earthlings-hackathon.herokuapp.com/).
+
 ---
+
+# UX
+
+This site is built to serve as a go-to place for tips, ideas and information on how to help save planet Earth. It utilises the Flask framework to handle the backend, liaising between the site and MongoDB. Users are able to register an account with the site, and through their account they can post to the site blog to share their tips and words of inspiration. On the theme of inspiration, ideas can be viewed by clicking on the landing page animation's circles to bring up a modal with content relevant to that subject. The site also features a calendar, which has different ideas for every month of the year. Blog entries can be edited and deleted from a user's profile page, and categories for blogs can be created and deleted from the categories page, giving the site full CRUD functionality.
+
+## User stories
+
+### A first time visitor to the site might want to:
+    1. Acquire information pertaining to the environment, their impact upon it, how to minimise their impact and help the planet from the landing page animation.
+    2. Read tips on how to help the planet in the calendar.
+    3. Register an account on the site.
+    4. Using their account, make blog posts.
+    5. Subscribe to receive weekly planet-saving tips using their email address.
+
+### A returning user to the site might want to:
+    6. Delete their blog posts.
+    7. Edit their blog posts.
+    8. Create a new category
+    9. Read a new month's tips on how to help the planet.
+    10. Explore further topics in the landing page animation.
+
+### A site owner might want to:
+    11. Facilitate the exchange of information via the hosting of a blog.
+    12. Interact with site users via the blog.
+    13. Send users weekly tips via the email sign-up form.
+    14. Invite users to register with the site.
 
 ## Site features
 
@@ -41,12 +71,26 @@ The home page features an animation of moving buttons revolving around a central
 ![Image of Add Category screen](docs/readmeimages/add-category.jpg)
 ![Image of Edit Category screen](docs/readmeimages/edit-category.jpg)
 
-### Blog maintenance from Profile Page  
+### Blog maintenance from Profile Page 
 
 - Each user can maintain their own blogs from their profile page.  
 
 ![Image of the Profile page](docs/readmeimages/ProfilePage.jpg)
 ![Image of the delete blog option](docs/readmeimages/delete-post.jpg)
+
+### Blog
+
+The blog allows users to share their thoughts, tips, ideas etc. on the theme of saving the planet.
+
+![Image of the blog page](docs/readmeimages/blog.png)
+![Image of the add blog page form](docs/readmeimages/addblog.png)
+
+### Calendar
+
+The calendar has new tips for every month of the year, featuring read functionality.
+
+![Image of the calendar](docs/readmeimages/calendar.png)
+
 ---
 
 ## Wireframes
@@ -115,8 +159,10 @@ The home page features an animation of moving buttons revolving around a central
 
 ## Testing
 
-The following testing was completed.
-- Categories Page
+The following testing was completed:
+
+### Categories Page
+- Demonstrated below is our list of tested features for the Categories page. To test the Categories page, navigate, while logged in, to the Categories page and work through the features listed here.
 - - Confirmed that List Categories page appeared on selecting Categories in the Navigation Menu
 - - Confirmed that it displayed the data from the categories table in the database.
 - - Confirmed that clicking Add button brought me to the 'Add Category' page.
@@ -130,6 +176,86 @@ The following testing was completed.
 - - Confirmed that clicking the Delete icon on the List Categories page for a category which was referenced by blogs was not deleted and a message was displayed explaining.
 - - Confirmed that clicking the Delete icon on the List Categories page for a category which was not referenced by blogs was deleted and I was returned to the List Categories page.
 
+### Blog
+- Demonstrated below is our list of tested features for the Blog. To test the blog, navigate to the Blog page and work through the features listed here. To post a blog, you must be logged in.
+- - Confirmed that blogs display on the page, oldest first.
+- - Confirmed that clicking a blog's category produces a list of blogs filtered by that category.
+- - Confirmed that the "Share your ideas" button is visible only to a logged-in user.
+- - Confirmed that the invitation to register or log in, which appears in place of the "Share your ideas" button appears only to a user who is not logged in.
+- - Confirmed that manually changing the URL to that of the add_blog page while not logged in will result in a user being redirected to the log in page.
+- - Confirmed that clicking the "Share your ideas" button navigates a user to the form to add a new blog.
+- - Confirmed that categories are visible and able to be selected on the add_blog page.
+- - Confirmed that the "title" and "share your story" text fields both take text.
+- - Confirmed that the "Return to Blog" button returns a user to the blog.
+- - Confirmed that clicking "Submit" submits a new blog.
+
+### Registration, log in, log out
+- Demonstrated below is our test of the site's full registration features. To test registration, navigate to the site's various registration pages and test according to the features listed here.
+- - Confirmed that trying to register with a password that does not meet the criteria will flag an appropriate error message explaining the error.
+- - Confirmed that trying to register with password fields not matching will fail to register, and an appropriate error message will show.
+- - Confirmed that attempting to log in with an incorrect password will refuse log in, and display a message explaining why.
+- - Confirmed that clicking "Log out" in the navbar will log a user out.
+- - Confirmed that attempting to register with an exisiting username will fail, and an error message will explain why.
+
+### Homepage animation
+- Demonstrated below is our test of the site's homepage animation. To test this, navigate to the site's home page and click on the revolving images.
+- - Confirmed that the animation works, by observing the animation.
+- - Confirmed that the modals work when clicking on the icon.
+- - Confirmed that the chevron brings a user further down the page to the calendar.
+
+---
+
+## Validators
+The site's pages were run through a number of validators, as was its code, to ensure adherence to best practice. Below is the evidence and results of this.
+
+### Lighthouse
+* Home page
+
+![Image of the homepage validation result](docs/validators/lighthousehomepage.png)
+
+* Blog
+
+![Image of the blog validation result](docs/validators/lighthousehomepage.png)
+
+* Log in page
+
+![Image of the log in page validation result](docs/validators/lighthouselogin.png)
+
+* Register page
+
+![Image of the registration page validation result](docs/validators/lighthouseregistration.png)
+
+* Categories page
+
+![Image of the categories page validation result](docs/validators/lighthousecategories.png)
+
+* Profile page
+
+![Image of the profile page validation result](docs/validators/lighthouseprofile.png)
+
+### Jigsaw
+
+Jigsaw was used to test for errors, best practice and validity of our CSS code. The results for both of our CSS files (landing.css and style.css) were the same, so I have posted one image below to count for both.
+
+![Results of CSS Jigsaw validation](docs/validators/jigsawlandingcss.png)
+
+### JSHint
+
+JSHint was used to test for errors, best practice and validity of our JavaScript code. The results for both our JS files (landing.js and script.js) are below.
+
+* landing.js
+
+It is worth noting that landing.js handles the homepage landing animation which was largely copied from elsewhere (credit in the credits section) and so, in order to avoid risking any errors so close to the deadline, the missing semicolons were not replaced as the code is working happily without them.
+
+![Results of landing.js jshint](docs/validators/jshintlandingjs.png)
+
+* script.js
+
+script.js flags an error abot the incompatibility of linting options values. With extra time, this would be an issue into which to dive deeper, but the code works, so the error - as there is only one - has been left alone for now.
+
+![Results of script.js jshint](docs/validators/jshintscriptjs.png)
+
+---
 
 ## Credits
 
